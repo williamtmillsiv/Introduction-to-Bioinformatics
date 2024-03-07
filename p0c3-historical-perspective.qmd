@@ -1,0 +1,11 @@
+# Historical Perspective
+
+## Doing bioinformatics well
+
+Over the course of your scientific career using bioinformatics, you will write thousands of lines of codes and generate possible hundreds of different scripts. When compared to canonical experiments where researchers are able to complete one experiment every few days, bioinformatics "experiments" can be executed in minutes, meaning you can complete dozens or even hundreds of experiments in a week. This necessitates a very high degree of organization and note taking to keep track of all your protocols, data, and analyses. Before we even write our first line of code, there are a few tips that can help us start on the right foot:
+
+-   **Stay organized.** While you may have experience making documents and folders on your computer, doing bioinformatics requires taking this practice to the next level. You should maintain a very organized file structure that allows you to easily retrieve files and understand how they were generated. This could involve having folders (often called "directories" in bioinformatics) inside of folders and README files that explain when how the files in that folder were generated. You need to properly label folders and files with version IDs more easily understand when the files were generated and using which protocols.
+
+-   **Take good notes.** When you begin writing code and eventually entire scripts, you will find it easier to keep writing code than annotating your script. Resist this urge. Just as you would take notes in your lab notebook during the course of an experiment at the bench, you should always take notes on what you are trying to accomplish, what difficulties or errors you experience along the way, and how you solved the problems and reached your final conclusion. Taking good notes will save you countless hours of having to go back and understand what a particular line of code is doing or trying to solve a previously-solved issue.
+
+-   **Output run info.**

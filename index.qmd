@@ -1,0 +1,51 @@
+# Introduction {.unnumbered}
+
+Bioinformatics, as it pertains to this book, is the usage of computational tools to process biological data. As science has progressed, the datasets produced during scientific experiments have become larger and larger and therefore the ability to glean insights from the data has become less and less straightforward. The growing complexity and size of scientific data has necessitated an increased reliance on computational tools for storing, analyzing, and visualizing data. The past 20 years of scientific research since the complete sequencing of the human genome has seen vast increases in the types of data generated and the number of tools used to process it. Several tools that will be discussed throughout this book have emerged as vital resources for processing particular types of biological data. This book will explore what types of biological data are out there, what tools are available to process it, and how you can begin processing data on your own computer. Even though the main emphasis of this book will be helping readers understand how to process sequencing data, many of the ideas and skills learned will be useful for dealing with other forms of biological data.
+
+## Prerequisites
+
+While this book is intended for readers with no computational experience, a general understanding of molecular biology (such as would be learned in an introductory biology course) would be useful for understanding the types of data being processed and the analyses being performed. When possible, references will be included to direct readers to additional resources for understanding biological concepts.
+
+## Structure of the Book
+
+This book is broken up into \_\_\_ main sections:
+
+1.  Section 1
+
+2.  Section 2
+
+3.  Section 3
+
+4.  Section 4
+
+5.  Section 5
+
+Each section contains several chapters that dive into the concepts that comprise that section. Each chapter will include references to additional resources that readers may pursue for more advanced information about the topic being discussed. Additionally, exercises will be included in each chapter to help readers put newly learned skills to the test and see real-world applications for the topics being learned.
+
+## License
+
+::: grid
+::: g-col-2
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="Creative Commons License" width="120" border-top="10"/></a>
+:::
+
+::: g-col-10
+This work is free to use, and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+:::
+:::
+
+## About Me
+
+::: grid
+::: g-col-9
+I earned by B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biochemistry/Bioinformatics at Mount St. Mary's University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I've learned with scientists looking to step into bioinformatics for the first time.
+:::
+
+::: g-col-3
+<br> ![](images/Headshot.jpg){fig-align="right" width="200"}
+:::
+:::
+
+Please contribute to this book by submitting your feedback: <https://github.com/williamtmills/Introduction-to-Bioinformatics>
+
+This is a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>.

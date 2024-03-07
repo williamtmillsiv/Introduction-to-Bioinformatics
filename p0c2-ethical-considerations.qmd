@@ -1,0 +1,7 @@
+# Ethical Considerations
+
+Bioethics is a term used to describe the ethical considerations one must make when proposing or conducting biological experiments. This includes ideas such as whether or how animals should be used in scientific experiments, what degree of consent is required from human subjects when conducting a study, and how the information obtained in an experiment should be used to influence public policy. While the field of bioinformatics does not directly interact with animals or humans, there are still many ethical questions that must be answered, such as how biological data is stored and processed, whether or not data can be used for purposes other than the original aims of the study that produced it, and what rights individuals have to the data that was generated from them.
+
+## The Story of Henrietta Lacks
+
+The event that is most often used to highlight importance of bioethics, specifically relating to human patients, is the story of Henrietta Lacks [@Skloot_2011].
