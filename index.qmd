@@ -24,7 +24,7 @@ Each section contains several chapters that dive into the concepts that comprise
 
 ## License
 
-::: grid
+::::: grid
 ::: g-col-2
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="Creative Commons License" width="120" border-top="10"/></a>
 :::
@@ -32,19 +32,19 @@ Each section contains several chapters that dive into the concepts that comprise
 ::: g-col-10
 This work is free to use, and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 :::
-:::
+:::::
 
 ## About Me
 
-::: grid
+::::: grid
 ::: g-col-9
-I earned by B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biochemistry/Bioinformatics at Mount St. Mary's University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I've learned with scientists looking to step into bioinformatics for the first time.
+I earned by B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biology at Mount St. Mary's University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I've learned with scientists looking to step into bioinformatics for the first time.
 :::
 
 ::: g-col-3
 <br> ![](images/Headshot.jpg){fig-align="right" width="200"}
 :::
-:::
+:::::
 
 Please contribute to this book by submitting your feedback: <https://github.com/williamtmills/Introduction-to-Bioinformatics>
 
