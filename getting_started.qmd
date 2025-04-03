@@ -1,0 +1,26 @@
+# Getting Started
+
+In order to perform most bioinformatic analyses, users will need access to a Unix or Unix-like operating system. Windows users will need to install Windows Subsystem for Linux (WSL) while Mac users just need access to the Terminal application. Below are instructions for accessing a Unix or Unix-like command line for Windows and Mac users.
+
+## Windows (using Windows Subsystem for Linux (WSL))
+
+1.  Open the Windows Terminal application
+2.  Run (i.e. type in) `wsl --install` (and click enter)
+3.  Restart your device
+4.  Open Windows Terminal
+5.  Run `wsl`
+6.  By default this should open the distribution (Ubuntu by default)
+
+-   If this doesn't work, you may need to run `wsl.exe --install -d Ubuntu` and may need to restart your computer again
+
+-   Enter a username and password (does not need to match your computer login)
+
+    -   You won’t see what you type in appear on the screen, just hit enter when you are done
+
+-   To log out of the distribution, run `exit`
+
+-   Every time you open Windows Terminal, you need to run `wsl` to turn on Windows Subsystem for Linux
+
+## Mac (using Terminal)
+
+1.  Open Terminal (Applications \> Utilities \> Terminal)

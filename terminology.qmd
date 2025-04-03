@@ -1,0 +1,29 @@
+# Terminology
+
+As with any field, there are certain words in phrases used by people in those fields that may not be familiar to others. The same is true with bioinformatics. Below are a few common terms used in bioinformatics that you should become familiar with as you will encounter them frequently.
+
+**command line**: a text-based interface where you can interact with the operating system (using a shell)
+
+In English: an app that lets you type instructions for controlling the computer
+
+Default command line interfaces on various operating systems:
+
+Windows: Windows Terminal
+
+macOS: Terminal
+
+Linux: (usually) Terminal
+
+shell: a computer program that allows users to interact with the operating system rather than using a graphical user interface (GUI)
+
+In English: a way of interacting with your computer without pointing and clicking with a mouse
+
+Why is this helpful? What if you wanted to change the name of 10 files on your computer? If you used your mouse to find the files on your computer and then change their names one by one, this could take several minutes. However, using a shell and the command line, you can perform this task in less than a second with the right instructions (i.e. code).
+
+Default shells on various operating systems:
+
+Windows: Powershell
+
+macOS: Z shell (zsh)
+
+Linux: (usually) Bourne-again shell (bash)
