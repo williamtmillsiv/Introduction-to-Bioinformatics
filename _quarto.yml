@@ -10,9 +10,9 @@ book:
     - part: index.qmd
       chapters: 
        - p0c1-what-is-bioinformatics.qmd
-       - p0c2-ethical-considerations.qmd
-       - p0c3-historical-perspective.qmd
-       - p0c4-biological-databases.qmd
+#       - p0c2-ethical-considerations.qmd
+#       - p0c3-historical-perspective.qmd
+#       - p0c4-biological-databases.qmd
     - part: command_line.qmd
       chapters:
         - getting_started.qmd
@@ -21,13 +21,13 @@ book:
         - Scripting_Tips.qmd
         - Built-In_Commands.qmd
         - awk.qmd
-    - part: Sequence-Analysis.qmd
-      chapters: 
-       - p1c1-pairwise-sequence-alignment.qmd
-       - p1c2-scoring-matricies-and-algorithms.qmd
-       - p1c3-sequence-database-searching.qmd
-    - part: Multiple-Sequence-Alignment.qmd
-    - part: Genomic-and-Transcriptomic-Analysis.qmd
+#    - part: Sequence-Analysis.qmd
+#      chapters: 
+#       - p1c1-pairwise-sequence-alignment.qmd
+#       - p1c2-scoring-matricies-and-algorithms.qmd
+#       - p1c3-sequence-database-searching.qmd
+#    - part: Multiple-Sequence-Alignment.qmd
+#    - part: Genomic-and-Transcriptomic-Analysis.qmd
 
 bibliography: references.bib
 
