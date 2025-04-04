@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: docs
+  render:
+    - "!data.txt"
   
 book:
   title: "Introduction to Bioinformatics"

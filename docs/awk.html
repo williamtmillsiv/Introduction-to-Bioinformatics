@@ -199,13 +199,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>awk is scripting language named after its developers (Aho, Weinberger, and Kernighan)</p>
-<p>Here is some vocabulary commonly used by awk:</p>
+<hr>
+<p>awk is scripting language named after its developers (Aho, Weinberger, and Kernighan) (<a href="https://www.geeksforgeeks.org/awk-command-unixlinux-examples/">usage</a>)</p>
+<hr>
+<p>Things to know about awk:</p>
 <ul>
-<li><p>Field = column</p></li>
-<li><p>Record = line (i.e.&nbsp;row)</p></li>
-</ul>
-<p>awk has several built-in variables that can be used in its code:</p>
+<li><p>awk refers to columns as field, such as in the variables for number of fields (<code>NF</code>), input field separator (<code>FS</code>), and output field separator (<code>OFS</code>).</p></li>
+<li><p>awk refers to rows as records, such as in the variables for record number (<code>NR</code>), input record separator (<code>RS</code>), and output record separator (<code>ORS</code>).</p></li>
+<li><p>By default, awk recognizes a space or tab as a field separator. If your input file has field separators other than a space or a tab, you need to specify it using the <code>-F</code> flag.</p></li>
+<li><p>awk has several built-in variables that can be used when writing code:</p>
 <ul>
 <li><p><code>$1</code> = field 1 ($2 = field 2, $3 = field 3, …)</p></li>
 <li><p><code>$0</code> = entire record</p></li>
@@ -216,7 +218,102 @@ ul.task-list li input[type="checkbox"] {
 <li><p><code>RS</code> = input record separator; default is new line</p></li>
 <li><p><code>ORS</code> = output record separator; default is new line</p></li>
 <li><p><code>[0-9]</code> = any number</p></li>
+</ul></li>
 </ul>
+<hr>
+<p>The sample file used in all of the example codes below is called <code>data.txt</code>. You can download the file <a href="data.txt">here</a>. Here is what the top of that file looks like:</p>
+<pre style="background-color: lightgray"><code>$ head data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123</code></pre>
+<p>Printing all of the fields (synonymous with <code>awk '{print $0}' data.txt</code>)</p>
+<pre style="background-color: lightgray"><code>$ awk '{print}' data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123</code></pre>
+<p>Print a particular field (e.g.&nbsp;field 1)</p>
+<pre style="background-color: lightgray"><code>$ awk '{print $1}' data.txt
+GeneNames
+GeneX
+GeneY
+GeneZ</code></pre>
+<p>Set input field separator as comma (,) (synonymous with <code>awk '{ FS = "," } ; {print $1}' data.csv</code>). Try leaving out the <code>-F,</code> and see what happens.</p>
+<pre style="background-color: lightgray"><code>$ head data.csv
+GeneNames,Sample1,Sample2,Sample3
+GeneX,321,5678,689
+GeneY,2354,6700,987
+GeneZ,2315,7890,123
+$ awk -F, '{print $1}' data.txt
+GeneNames
+GeneX
+GeneY
+GeneZ</code></pre>
+<p>Print multiple fields (e.g.&nbsp;field 1 and 3): <code>awk '{print $1,$3}' /path/to/file</code></p>
+<pre style="background-color: lightgray"><code>$ awk '{print $1,$3}' data.txt
+GeneNames Sample2
+GeneX 5678
+GeneY 6700
+GeneZ 7890</code></pre>
+<p>Print the last field</p>
+<pre style="background-color: lightgray"><code>$ awk '{print $NF}' data.txt
+Sample3
+689
+987
+123</code></pre>
+<p>Print all records after the first record (synonymous with <code>awk 'NR!=1 {print}' /path/to/file</code>)</p>
+<pre style="background-color: lightgray"><code>$ awk 'NR&gt;1 {print}' data.txt
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123</code></pre>
+<p>Print a particular record (e.g.&nbsp;record 3): <code>awk 'NR==3 {print}' /path/to/file</code></p>
+<pre style="background-color: lightgray"><code>$ awk 'NR==3 {print}' data.txt
+GeneY 2354  6700  987</code></pre>
+<p>Print all records except for a particular record (e.g.&nbsp;not record 3)</p>
+<pre style="background-color: lightgray"><code>$ awk 'NR!=3 {print}' data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneZ 2315  7890  123</code></pre>
+<p>Print a range of records (e.g.&nbsp;records 2 to 3)</p>
+<pre style="background-color: lightgray"><code>$ awk 'NR==2, NR==3 {print}' data.txt
+GeneY 2354  6700  987
+GeneZ 2315  7890  123</code></pre>
+<p>Print records with fewer than a certain number of fields (e.g.&nbsp;fewer than 4 fields)</p>
+<pre style="background-color: lightgray"><code>$ head data2.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700
+GeneZ 2315  7890  123
+$ awk 'NF&lt;4 {print}' data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneZ 2315  7890  123</code></pre>
+<p>Print records containing a certain string (anywhere in record): <code>awk '/string/ {print}' /path/to/file</code></p>
+<pre style="background-color: lightgray"><code>$</code></pre>
+<ul>
+<li><p>Print records starting with a certain string: <code>awk '/^string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records ending with a certain string: <code>awk '/string$/ {print}' /path/to/file</code></p></li>
+<li><p>Print records that don’t contain a certain string (anywhere in record): <code>awk '!/string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records that don’t start with a certain string: <code>awk '!/^string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records that don’t end with a certain string: <code>awk '!/string$/ {print}' /path/to/file</code></p></li>
+<li><p>Print records where a particular field contains a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records where a particular field starts with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /^string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records where a particular field ends with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string$/ {print}' /path/to/file</code></p></li>
+<li><p>Print records where a particular field starts with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /^[0-9]/ {print}' /path/to/file</code></p></li>
+<li><p>Print records where a particular field ends with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /[0-9]$/ {print}' /path/to/file</code></p></li>
+<li><p>Ignore case when looking for records containing a string: <code>awk 'tolower($0) ~ /string/ {print}' /path/to/file</code></p></li>
+<li><p>Print records that contain a certain value in a particular field (e.g.&nbsp;the number 10 in field 2): <code>awk '$2==10 {print}' /path/to/file</code></p></li>
+<li><p>Print records that do not contain a certain value in a particular field (e.g.&nbsp;not the number 10 in field 2): <code>awk '$2!=10 {print}' /path/to/file</code></p></li>
+<li><p>Print records that contain a value greater than a certain value in a particular field (e.g.&nbsp;&gt;10 in field 2): <code>awk '$2&gt;10 {print}' /path/to/file</code></p></li>
+<li><p>Print records that contain a value less than a certain value in a particular field (e.g.&nbsp;&lt;10 in field 2): <code>awk '$2&lt;10 {print}' /path/to/file</code></p></li>
+</ul>
+<p>Sum values in a field (e.g.&nbsp;field 2): <code>awk '{sum+=$2;} END{print sum;}' /path/to/file</code></p>
+<ul>
+<li>Remember to add <code>NR&gt;1</code> if your file has a header: <code>awk 'NR&gt;1 {sum+=$2;} END{print sum;}' /path/to/file</code></li>
+</ul>
+<p>Remove blank lines: <code>awk 'NF' /path/to/file</code>&nbsp;</p>
+<p>Print the record number at beginning of record: <code>awk '{print NR,$0}' /path/to/file</code></p>
 
 
 
