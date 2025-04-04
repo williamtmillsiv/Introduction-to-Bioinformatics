@@ -36,10 +36,10 @@ Things to know about awk:
 
 ------------------------------------------------------------------------
 
-The sample file used in all of the example codes below is called `data.txt`. You can download the file [here](data.txt). Here is what the top of that file looks like:
+Each of the code examples shown below is preceded by viewing the input file to better visualize what each line of code is doing. The `$` at the beginning of each line of code represents the end of prompt you see in your command line. If you'd like to run the code in these examples, simply copy everything after the `$` into your command line.
 
-``` {style="background-color: lightgray"}
-$ head data.txt
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
 GeneNames Sample1 Sample2 Sample3
 GeneX 321 5678  689
 GeneY 2354  6700  987
@@ -48,7 +48,12 @@ GeneZ 2315  7890  123
 
 Printing all of the fields (synonymous with `awk '{print $0}' data.txt`)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk '{print}' data.txt
 GeneNames Sample1 Sample2 Sample3
 GeneX 321 5678  689
@@ -58,7 +63,12 @@ GeneZ 2315  7890  123
 
 Print a particular field (e.g. field 1)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk '{print $1}' data.txt
 GeneNames
 GeneX
@@ -68,8 +78,8 @@ GeneZ
 
 Set input field separator as comma (,) (synonymous with `awk '{ FS = "," } ; {print $1}' data.csv`). Try leaving out the `-F,` and see what happens.
 
-``` {style="background-color: lightgray"}
-$ head data.csv
+``` {style="background-color: whitesmoke"}
+$ cat data.csv
 GeneNames,Sample1,Sample2,Sample3
 GeneX,321,5678,689
 GeneY,2354,6700,987
@@ -81,9 +91,14 @@ GeneY
 GeneZ
 ```
 
-Print multiple fields (e.g. field 1 and 3): `awk '{print $1,$3}' /path/to/file`
+Print multiple fields (e.g. field 1 and 3)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk '{print $1,$3}' data.txt
 GeneNames Sample2
 GeneX 5678
@@ -93,7 +108,12 @@ GeneZ 7890
 
 Print the last field
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk '{print $NF}' data.txt
 Sample3
 689
@@ -103,23 +123,38 @@ Sample3
 
 Print all records after the first record (synonymous with `awk 'NR!=1 {print}' /path/to/file`)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk 'NR>1 {print}' data.txt
 GeneX 321 5678  689
 GeneY 2354  6700  987
 GeneZ 2315  7890  123
 ```
 
-Print a particular record (e.g. record 3): `awk 'NR==3 {print}' /path/to/file`
+Print a particular record (e.g. record 3)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk 'NR==3 {print}' data.txt
 GeneY 2354  6700  987
 ```
 
 Print all records except for a particular record (e.g. not record 3)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk 'NR!=3 {print}' data.txt
 GeneNames Sample1 Sample2 Sample3
 GeneX 321 5678  689
@@ -128,17 +163,21 @@ GeneZ 2315  7890  123
 
 Print a range of records (e.g. records 2 to 3)
 
-``` {style="background-color: lightgray"}
+``` {style="background-color: whitesmoke"}
+$ cat data.txt
+GeneNames Sample1 Sample2 Sample3
+GeneX 321 5678  689
+GeneY 2354  6700  987
+GeneZ 2315  7890  123
 $ awk 'NR==2, NR==3 {print}' data.txt
 GeneY 2354  6700  987
 GeneZ 2315  7890  123
 ```
 
-
 Print records with fewer than a certain number of fields (e.g. fewer than 4 fields)
 
-``` {style="background-color: lightgray"}
-$ head data2.txt
+``` {style="background-color: whitesmoke"}
+$ cat data2.txt
 GeneNames Sample1 Sample2 Sample3
 GeneX 321 5678  689
 GeneY 2354  6700
@@ -149,22 +188,63 @@ GeneX 321 5678  689
 GeneZ 2315  7890  123
 ```
 
-Print records containing a certain string (anywhere in record): `awk '/string/ {print}' /path/to/file`
+Print records containing a certain string anywhere in record (e.g. `abc`):
 
-``` {style="background-color: lightgray"}
-$
+``` {style="background-color: whitesmoke"}
+$ cat data3.txt
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+$ awk '/abc/ {print}'
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
 ```
 
+Print records starting with a certain string
 
+``` {style="background-color: whitesmoke"}
+$ cat data3.txt
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+$ awk '/^abc/ {print}'
+abcd dcba efgh  hgfe
+```
 
+Print records ending with a certain string. One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e. unix) is `\n` while the line ending character in Windows is `\r\n`. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem...
 
--   Print records starting with a certain string: `awk '/^string/ {print}' /path/to/file`
+``` {style="background-color: whitesmoke"}
+$ cat data3.txt
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+$ awk '/abc$/ {print}'
+abcd dcba efgh  hgfe
+```
 
--   Print records ending with a certain string: `awk '/string$/ {print}' /path/to/file`
+Print records that don't contain a certain string anywhere in record
 
--   Print records that don't contain a certain string (anywhere in record): `awk '!/string/ {print}' /path/to/file`
+``` {style="background-color: whitesmoke"}
+$ cat data3.txt
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+$ awk '!/abc/ {print}'
+cdef defg  efgh  fghi
+```
 
 -   Print records that don't start with a certain string: `awk '!/^string/ {print}' /path/to/file`
+
+``` {style="background-color: whitesmoke"}
+$ cat data3.txt
+abcd dcba efgh  hgfe
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+$ awk '!/^abc/ {print}'
+bcde dabc  cbad  abdc
+cdef defg  efgh  fghi
+```
+
 
 -   Print records that don't end with a certain string: `awk '!/string$/ {print}' /path/to/file`
 
