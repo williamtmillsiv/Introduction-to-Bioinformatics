@@ -1,0 +1,19 @@
+# Command Line Tips {.unnumbered}
+
+-   Press ‘tab’ button to autofill
+
+-   Depending on shell, hitting tab once (zsh) or twice (bash) will display options if multiple exist
+
+-   Press ‘up’ arrow to recall last command
+
+-   ‘Control + A’ to move to beginning of line
+
+-   ‘Control + E’ to move to end of line
+
+-   ‘Control + C’ to end (i.e. kill) command
+
+-   ‘Control + Z’ to exit manual
+
+-   Avoid using spaces when naming files or folders
+
+-   Beware curly (i.e. smart) quotes `‘`, be sure to use straight quotes `'`. Curly quotes usually come from text editors like Microsoft Word and don't work when coding. To ensure you are using straight quotes, write code in a plain-text editor like TextEdit (Mac) or Notepad (Windows) and turn off spelling and grammar checking.

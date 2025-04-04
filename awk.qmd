@@ -1,0 +1,29 @@
+# awk {.unnumbered}
+
+awk is scripting language named after its developers (Aho, Weinberger, and Kernighan)
+
+Here is some vocabulary commonly used by awk:
+
+-   Field = column
+
+-   Record = line (i.e. row)
+
+awk has several built-in variables that can be used in its code:
+
+-   `$1` = field 1 (\$2 = field 2, \$3 = field 3, ...)
+
+-   `$0` = entire record
+
+-   `NF` = number of fields
+
+-   `NR` = number of records
+
+-   `FS` = input field separator; default is white space (i.e. space and tab)
+
+-   `OFS` = output field separator; default is single space
+
+-   `RS` = input record separator; default is new line
+
+-   `ORS` = output record separator; default is new line
+
+-   `[0-9]` = any number

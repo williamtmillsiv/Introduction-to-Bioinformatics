@@ -1,4 +1,4 @@
-# Terminology
+# Terminology {.unnumbered}
 
 As with any field, there are certain words in phrases used by people in those fields that may not be familiar to others. The same is true with bioinformatics. Below are a few common terms used in bioinformatics that you should become familiar with as you will encounter them frequently.
 

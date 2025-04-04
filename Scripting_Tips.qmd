@@ -1,0 +1,13 @@
+# Scripting Tips {.unnumbered}
+
+-   When using a bash shell, start every script with `#!/bin/bash`
+
+-   Write scripts with a plain-text editor such as TextEdit (Mac) or Notepad (Windows)
+
+-   Turn off spelling and grammar checking:
+
+    -   In TextEdit (Mac): Edit \> Spelling and Grammar \> Uncheck 'Check Spelling While Typing' and 'Correct Spelling Automatically'
+
+    -   In Notepad (Windows): Select Setting (top right) \> Scroll down to Spelling section \> Toggle off 'Autocorrect' and 'Spell Check'
+
+-   Thoroughly annotate scripts (adding a `#` at the beginning of a line causes it to be ignored when the computer reads the script).

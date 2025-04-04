@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="William T. Mills IV">
-<meta name="dcterms.date" content="2025-04-03">
 
-<title>Introduction to Bioinformatics</title>
+<title>Scripting Tips – Introduction to Bioinformatics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./p0c1-what-is-bioinformatics.html" rel="next">
+<link href="./Built-In_Commands.html" rel="next">
+<link href="./Command_Line_Tips.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./Scripting_Tips.html">Scripting Tips</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./index.html" class="sidebar-item-text sidebar-link active">
+            <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -171,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Scripting_Tips.html" class="sidebar-item-text sidebar-link">
+  <a href="./Scripting_Tips.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Scripting Tips</span></a>
   </div>
 </li>
@@ -231,46 +230,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#structure-of-the-book" id="toc-structure-of-the-book" class="nav-link" data-scroll-target="#structure-of-the-book">Structure of the Book</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link" data-scroll-target="#about-me">About Me</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./Scripting_Tips.html">Scripting Tips</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to Bioinformatics</h1>
+<h1 class="title">Scripting Tips</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>William T. Mills IV </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 3, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -280,52 +255,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction</h1>
-<p>Bioinformatics, as it pertains to this book, is the usage of computational tools to process biological data. As science has progressed, the datasets produced during scientific experiments have become larger and larger and therefore the ability to glean insights from the data has become less and less straightforward. The growing complexity and size of scientific data has necessitated an increased reliance on computational tools for storing, analyzing, and visualizing data. The past 20 years of scientific research since the complete sequencing of the human genome has seen vast increases in the types of data generated and the number of tools used to process it. Several tools that will be discussed throughout this book have emerged as vital resources for processing particular types of biological data. This book will explore what types of biological data are out there, what tools are available to process it, and how you can begin processing data on your own computer. Even though the main emphasis of this book will be helping readers understand how to process sequencing data, many of the ideas and skills learned will be useful for dealing with other forms of biological data.</p>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>While this book is intended for readers with no computational experience, a general understanding of molecular biology (such as would be learned in an introductory biology course) would be useful for understanding the types of data being processed and the analyses being performed. When possible, references will be included to direct readers to additional resources for understanding biological concepts.</p>
-</section>
-<section id="structure-of-the-book" class="level2">
-<h2 class="anchored" data-anchor-id="structure-of-the-book">Structure of the Book</h2>
-<p>This book is broken up into ___ main sections:</p>
-<ol type="1">
-<li><p>Section 1</p></li>
-<li><p>Section 2</p></li>
-<li><p>Section 3</p></li>
-<li><p>Section 4</p></li>
-<li><p>Section 5</p></li>
-</ol>
-<p>Each section contains several chapters that dive into the concepts that comprise that section. Each chapter will include references to additional resources that readers may pursue for more advanced information about the topic being discussed. Additionally, exercises will be included in each chapter to help readers put newly learned skills to the test and see real-world applications for the topics being learned.</p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<div class="grid">
-<div class="g-col-2">
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="Creative Commons License" width="120" border-top="10"></a></p>
-</div>
-<div class="g-col-10">
-<p>This work is free to use, and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
-</div>
-</div>
-</section>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<div class="grid">
-<div class="g-col-9">
-<p>I earned by B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D.&nbsp;in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biology at Mount St.&nbsp;Mary’s University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I’ve learned with scientists looking to step into bioinformatics for the first time.</p>
-</div>
-<div class="g-col-3">
-<p><br> <img src="images/Headshot.jpg" class="img-fluid quarto-figure quarto-figure-right" width="200"></p>
-</div>
-</div>
-<p>Please contribute to this book by submitting your feedback: <a href="https://github.com/williamtmills/Introduction-to-Bioinformatics" class="uri">https://github.com/williamtmills/Introduction-to-Bioinformatics</a></p>
-<p>This is a Quarto book. To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<ul>
+<li><p>When using a bash shell, start every script with <code>#!/bin/bash</code></p></li>
+<li><p>Write scripts with a plain-text editor such as TextEdit (Mac) or Notepad (Windows)</p></li>
+<li><p>Turn off spelling and grammar checking:</p>
+<ul>
+<li><p>In TextEdit (Mac): Edit &gt; Spelling and Grammar &gt; Uncheck ‘Check Spelling While Typing’ and ‘Correct Spelling Automatically’</p></li>
+<li><p>In Notepad (Windows): Select Setting (top right) &gt; Scroll down to Spelling section &gt; Toggle off ‘Autocorrect’ and ‘Spell Check’</p></li>
+</ul></li>
+<li><p>Thoroughly annotate scripts (adding a <code>#</code> at the beginning of a line causes it to be ignored when the computer reads the script).</p></li>
+</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -750,10 +691,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Command_Line_Tips.html" class="pagination-link" aria-label="Command Line Tips">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Command Line Tips</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./p0c1-what-is-bioinformatics.html" class="pagination-link" aria-label="What is Bioinformatics?">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Bioinformatics?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Built-In_Commands.html" class="pagination-link" aria-label="Built-In Command Line Tools">
+        <span class="nav-page-text">Built-In Command Line Tools</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 book:
-  title: "Introduction-to-Bioinformatics"
+  title: "Introduction to Bioinformatics"
   author: "William T. Mills IV"
   date: "Last updated: 4/3/2025"
   chapters:
@@ -17,6 +17,10 @@ book:
       chapters:
         - getting_started.qmd
         - terminology.qmd
+        - Command_Line_Tips.qmd
+        - Scripting_Tips.qmd
+        - Built-In_Commands.qmd
+        - awk.qmd
     - part: Sequence-Analysis.qmd
       chapters: 
        - p1c1-pairwise-sequence-alignment.qmd

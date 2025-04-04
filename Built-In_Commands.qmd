@@ -1,0 +1,103 @@
+# Built-In Command Line Tools {.unnumbered}
+
+Your terminal will have several commands already built into the command line. Below are a few of them with examples of how they are used.
+
+`pwd`: print working directory (where am I currently?)
+
+ 
+
+`/`: root directory (folder that holds all other folders)\
+`./`: current directory (current folder)\
+`../`: parent directory (folder containing your current folder)
+
+ 
+
+`ls`: list directory contents (list everything in current folder) ([usage](https://www.geeksforgeeks.org/ls-command-in-linux/))
+
+-   Flags:
+
+    -   `-l`: long format (permissions, sizes, dates, etc.)
+
+    -   `-F`: indicate item types
+
+        -   trailing / = directory
+
+        -   \@ = link
+
+        -   \* = executable
+
+    -   `-r`: reverse order (reverse alphabetic order)
+
+ 
+
+`mkdir`: make directory (i.e. folder) ([usage](https://www.geeksforgeeks.org/mkdir-command-in-linux-with-examples/))
+
+ 
+
+`mv`: move object ([usage](https://www.geeksforgeeks.org/mv-command-linux-examples/))
+
+-   `mv [source(s)] [destination]`
+
+-   **\*Warning\*** Will overwrite object if name already exists
+
+-   When in the same folder: renames object
+
+-   Flags:
+
+    -   `-i`: interactive (ask for confirmation before overwriting)
+
+ 
+
+`cp`: copy object ([usage](https://www.geeksforgeeks.org/cp-command-linux-examples/))
+
+-   cp \[source object(s)\] \[destination\]
+
+-   **\*Warning\*** Will overwrite object if name already exists
+
+-   Flags:
+
+    -   -R: copy directory (i.e. folder)
+
+    -   -i: interactive (ask for confirmation before overwriting)
+
+ 
+
+`head`: display the beginning (i.e. top) of a file ([usage](https://www.geeksforgeeks.org/head-command-linux-examples/))
+
+-   Flags:
+
+    -   `-1`: display first row
+
+    -   `-3`: display first 3 rows
+
+ 
+
+`tail`: display the end (i.e. bottom) of a file ([usage](https://www.geeksforgeeks.org/tail-command-linux-examples/))
+
+-   Flags:
+
+    -   `-1`: display last row
+
+    -   `-3`: display last 3 rows
+
+ 
+
+`|` (shift + backslash): pipe (use outputs from one command as inputs for another)
+
+-   Example: display the 10th row of a file
+
+    -   `head -10 path/to/file | tail -1`
+
+ 
+
+`wc`: word count (lines, words, characters) ([usage](https://www.geeksforgeeks.org/wc-command-linux-examples/))
+
+-   Flags:
+
+    -   `-l`: lines
+
+    -   `-w`: words
+
+    -   `-c`: characters
+
+ 
