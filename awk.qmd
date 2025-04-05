@@ -38,6 +38,12 @@ Things to know about awk:
 
 Each of the code examples shown below is preceded by viewing the input file to better visualize what each line of code is doing. The `$` at the beginning of each line of code represents the end of prompt you see in your command line. If you'd like to run the code in these examples, simply copy everything after the `$` into your command line.
 
+This is test code
+```{bash}
+# Test bash code
+```
+
+
 ``` {style="background-color: whitesmoke"}
 $ cat data.txt
 GeneNames Sample1 Sample2 Sample3

@@ -1,0 +1,49 @@
+# Data Structures {.unnumbered}
+
+In the previous section we discussed storing objects as variables so that they can be easily referenced later:
+
+```{r}
+x <- 54321
+x
+typeof(x)
+
+y <- "science"
+y
+typeof(y)
+```
+
+R can handle much more than a single object in a variable. You can add thousands of objects to a single variable and they can be of the same or different types and even have multiple rows or columns. The terms used to describe how multiple objects are stored depends on whether the objects are of the same (homogeneous) or different (heterogeneous) types and their dimensions:
+
+| Rows | Homogeneous   | Heterogeneous |
+|:-----|:--------------|:--------------|
+| 1d   | Atomic vector | List          |
+| 2d   | Matrix        | Data frame    |
+| nd   | Array         |               |
+
+In the simplest case, a group of objects of the same type can be combined (using combine, `c()`) to form an atomic vector:
+
+```{r}
+#Combining several numbers (type: double) into a vector stored as an object called "string"
+
+string <- c(1,2,3,4,5)
+string
+typeof(string)
+is.atomic(string)
+```
+
+However, if you try to combine objects of different types using `c()`, R will try to convert them all to the same data type:
+
+```{r}
+string <- c(1,2,3,4,5,"six")
+string
+typeof(string)
+is.atomic(string)
+```
+
+To ensure that the original data type is preserved, you can intentionally create a list:
+
+```{r}
+string <- list(1,2,3,4,5,"six")
+typeof(string)
+is.atomic(string)
+```

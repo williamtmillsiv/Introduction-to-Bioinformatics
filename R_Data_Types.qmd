@@ -1,0 +1,103 @@
+# Data Types {.unnumbered}
+
+R stores the data you give it in the most optimal way that it can for it to do the manipulations and graphing that you desire. Here are the terms we use to describe these classifications:
+
+Term    Definition      
+------  ------------
+Type    Classification for how an object is stored internally in R (a.k.a. storage mode)
+Class   Broader classification of how an object is stored in R (the more common language you would use in conversation and writing)
+
+>The term "object" describes any "thing" in R such as numbers, characters, etc. (described below).
+
+You can figure out the type or class of any object by using the `typeof()` or `class()` functions, respectively. Here is how we determine the type and class of the object `3`:
+
+```{r}
+typeof(3)
+class(3)
+```
+
+> These operations are called functions. A function is some task you want R to perform and what you put inside the parentheses is the object you want R to perform that function on. In these examples, the "task" you want R to perform is to tell you what the type or class of of an object is and the object in these examples is `3`.
+
+> Every function in R has specific requirements for how it is used. To learn about the requirements for any particular function you can use the `help()` function. For example, to learn how to use the `typeof()` function, you can run `help(typeof)`.
+
+In the examples above you'll notice that `typeof()` and `class()` use different terms to describe the same object (in this case, `3`). Below is a table that helps visualize these distinctions (there are many other types and classes but these are the ones you will see most often).
+
+| Object | Type | Class | Notes |
+|:---|:---|:---|:---|
+| "a" | Character | Character | Letters must be in quotes or they will be interpreted as an object (discussed below) |
+| 3 | Double | Numeric | Double = double precision floating point numbers (significand and exponent) |
+| 3L | Integer | Integer | Can only be whole numbers (i.e. no decimals) |
+| TRUE or FALSE | Logical | Logical |  |
+
+<br>
+In addition to determining the type or class of an object (using `typeof()` or `class()`), you can also determine if an object is a particular type or class (using `is.double()`, `is.numeric()`, `is.integer()`, `is.character()`, `is.logical()`). For example:
+
+
+```{r, eval = FALSE}
+is.double(3) # TRUE
+is.numeric(3) # TRUE
+is.integer(3) # FALSE
+is.character(3) # FALSE
+
+is.double(3L) # FALSE
+is.numeric(3L) # TRUE
+is.integer(3L) # TRUE
+is.character(3L) # FALSE
+
+is.logical(TRUE) # TRUE
+is.numeric(TRUE) # FALSE
+is.character(TRUE) # FALSE
+is.character("TRUE") # TRUE
+
+is.logical("abc") # FALSE
+is.numeric("abc") # FALSE
+is.character("abc") # TRUE
+```
+
+Notice that the "answer" to these functions is logical (`TRUE` or `FALSE`); this is a very useful feature of R that you will see later.
+
+> Imagine having a data set with a list of cities and their average yearly rainfall totals. With a simple line of code, R can quickly tell you whether each city's average yearly rainfall is above or below a certain number (outputing `TRUE` or `FALSE` for each city).
+
+It is often useful to store some information (numbers, text, etc.) as a variable that can be easily referenced later. For example, rather than having to type out the number 10481034582 every time you need to use it, you can simply save it as a variable (R calls these variables "objects"). Let's use the letter `x` as our new object. After executing this function you should see it appear in your R environment under "Values" in the Environment panel in the top-right corner of RStudio:
+
+```{r}
+x <- 10481034582
+x
+```
+
+You can change the value of your object by running the same code with a different value:
+
+```{r}
+x <- 54321
+x
+```
+
+> CAUTION: this overwriting of an object can't be undone except by starting over and regenerating it the way you did originally. To see if you have used an object name already, check under "Values" in the Environment panel in the top-right of RStudio.
+
+Now, anytime you need to use that value you can simply use the object instead:
+
+```{r}
+typeof(12345)
+x <- 12345
+typeof(x)
+```
+
+```{r}
+# Let's overwrite the object x to prove that it is holding the correct value
+
+typeof("abcd")
+x <- "abcd"
+typeof(x)
+```
+
+These new objects don't have to be single letters, they can also be multiple letters or words; they just can't start with a number or contain any special characters other than an underscore `_`. This can help you remember which objects are which:
+
+```{r}
+big_number <- 10481034582
+big_number
+
+small_number <- 54321
+small_number
+```
+
+As you start generating your own code and pipelines for analyzing data, you will find this feature particularly useful as you can avoid having to change every occurrence of an object and instead just change it a single time when you originally create the object.

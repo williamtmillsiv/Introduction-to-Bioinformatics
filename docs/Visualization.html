@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>awk – Introduction to Bioinformatics</title>
+<title>R – Introduction to Bioinformatics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Visualization.html" rel="next">
-<link href="./Built-In_Commands.html" rel="prev">
+<link href="./R_Data_Types.html" rel="next">
+<link href="./awk.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./awk.html">awk</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Visualization.html">R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./awk.html" class="sidebar-item-text sidebar-link active">
+  <a href="./awk.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">awk</span></a>
   </div>
 </li>
@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Visualization.html" class="sidebar-item-text sidebar-link">
+            <a href="./Visualization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -204,9 +204,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./awk.html">awk</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">awk</h1>
+<h1 class="title">R</h1>
 </div>
 
 
@@ -223,196 +223,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<hr>
-<p>awk is scripting language named after its developers (Aho, Weinberger, and Kernighan) (<a href="https://www.geeksforgeeks.org/awk-command-unixlinux-examples/">usage</a>)</p>
-<hr>
-<p>Things to know about awk:</p>
-<ul>
-<li><p>awk refers to columns as field, such as in the variables for number of fields (<code>NF</code>), input field separator (<code>FS</code>), and output field separator (<code>OFS</code>).</p></li>
-<li><p>awk refers to rows as records, such as in the variables for record number (<code>NR</code>), input record separator (<code>RS</code>), and output record separator (<code>ORS</code>).</p></li>
-<li><p>By default, awk recognizes a space or tab as a field separator. If your input file has field separators other than a space or a tab, you need to specify it using the <code>-F</code> flag.</p></li>
-<li><p>awk has several built-in variables that can be used when writing code:</p>
-<ul>
-<li><p><code>$1</code> = field 1 ($2 = field 2, $3 = field 3, …)</p></li>
-<li><p><code>$0</code> = entire record</p></li>
-<li><p><code>NF</code> = number of fields</p></li>
-<li><p><code>NR</code> = number of records</p></li>
-<li><p><code>FS</code> = input field separator; default is white space (i.e.&nbsp;space and tab)</p></li>
-<li><p><code>OFS</code> = output field separator; default is single space</p></li>
-<li><p><code>RS</code> = input record separator; default is new line</p></li>
-<li><p><code>ORS</code> = output record separator; default is new line</p></li>
-<li><p><code>[0-9]</code> = any number</p></li>
-</ul></li>
-</ul>
-<hr>
-<p>Each of the code examples shown below is preceded by viewing the input file to better visualize what each line of code is doing. The <code>$</code> at the beginning of each line of code represents the end of prompt you see in your command line. If you’d like to run the code in these examples, simply copy everything after the <code>$</code> into your command line.</p>
-<p>This is test code</p>
-<pre class="{bash}"><code># Test bash code</code></pre>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Printing all of the fields (synonymous with <code>awk '{print $0}' data.txt</code>)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print a particular field (e.g.&nbsp;field 1)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $1}' data.txt
-GeneNames
-GeneX
-GeneY
-GeneZ</code></pre>
-<p>Set input field separator as comma (,) (synonymous with <code>awk '{ FS = "," } ; {print $1}' data.csv</code>). Try leaving out the <code>-F,</code> and see what happens.</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.csv
-GeneNames,Sample1,Sample2,Sample3
-GeneX,321,5678,689
-GeneY,2354,6700,987
-GeneZ,2315,7890,123
-$ awk -F, '{print $1}' data.txt
-GeneNames
-GeneX
-GeneY
-GeneZ</code></pre>
-<p>Print multiple fields (e.g.&nbsp;field 1 and 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $1,$3}' data.txt
-GeneNames Sample2
-GeneX 5678
-GeneY 6700
-GeneZ 7890</code></pre>
-<p>Print the last field</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $NF}' data.txt
-Sample3
-689
-987
-123</code></pre>
-<p>Print all records after the first record (synonymous with <code>awk 'NR!=1 {print}' /path/to/file</code>)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR&gt;1 {print}' data.txt
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print a particular record (e.g.&nbsp;record 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR==3 {print}' data.txt
-GeneY 2354  6700  987</code></pre>
-<p>Print all records except for a particular record (e.g.&nbsp;not record 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR!=3 {print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneZ 2315  7890  123</code></pre>
-<p>Print a range of records (e.g.&nbsp;records 2 to 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR==2, NR==3 {print}' data.txt
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print records with fewer than a certain number of fields (e.g.&nbsp;fewer than 4 fields)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data2.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700
-GeneZ 2315  7890  123
-$ awk 'NF&lt;4 {print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneZ 2315  7890  123</code></pre>
-<p>Print records containing a certain string anywhere in record (e.g.&nbsp;<code>abc</code>):</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/abc/ {print}'
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc</code></pre>
-<p>Print records starting with a certain string</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/^abc/ {print}'
-abcd dcba efgh  hgfe</code></pre>
-<p>Print records ending with a certain string. One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e.&nbsp;unix) is <code>\n</code> while the line ending character in Windows is <code>\r\n</code>. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem…</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/abc$/ {print}'
-abcd dcba efgh  hgfe</code></pre>
-<p>Print records that don’t contain a certain string anywhere in record</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '!/abc/ {print}'
-cdef defg  efgh  fghi</code></pre>
-<ul>
-<li>Print records that don’t start with a certain string: <code>awk '!/^string/ {print}' /path/to/file</code></li>
-</ul>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '!/^abc/ {print}'
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi</code></pre>
-<ul>
-<li><p>Print records that don’t end with a certain string: <code>awk '!/string$/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field contains a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field starts with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /^string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field ends with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string$/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field starts with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /^[0-9]/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field ends with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /[0-9]$/ {print}' /path/to/file</code></p></li>
-<li><p>Ignore case when looking for records containing a string: <code>awk 'tolower($0) ~ /string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a certain value in a particular field (e.g.&nbsp;the number 10 in field 2): <code>awk '$2==10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that do not contain a certain value in a particular field (e.g.&nbsp;not the number 10 in field 2): <code>awk '$2!=10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a value greater than a certain value in a particular field (e.g.&nbsp;&gt;10 in field 2): <code>awk '$2&gt;10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a value less than a certain value in a particular field (e.g.&nbsp;&lt;10 in field 2): <code>awk '$2&lt;10 {print}' /path/to/file</code></p></li>
-</ul>
-<p>Sum values in a field (e.g.&nbsp;field 2): <code>awk '{sum+=$2;} END{print sum;}' /path/to/file</code></p>
-<ul>
-<li>Remember to add <code>NR&gt;1</code> if your file has a header: <code>awk 'NR&gt;1 {sum+=$2;} END{print sum;}' /path/to/file</code></li>
-</ul>
-<p>Remove blank lines: <code>awk 'NF' /path/to/file</code>&nbsp;</p>
-<p>Print the record number at beginning of record: <code>awk '{print NR,$0}' /path/to/file</code></p>
 
 
 
@@ -839,13 +649,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Built-In_Commands.html" class="pagination-link" aria-label="Built-In Command Line Tools">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Built-In Command Line Tools</span>
+      <a href="./awk.html" class="pagination-link" aria-label="awk">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">awk</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Visualization.html" class="pagination-link" aria-label="R">
-        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R_Data_Types.html" class="pagination-link" aria-label="Data Types">
+        <span class="nav-page-text">Data Types</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

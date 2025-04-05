@@ -23,6 +23,11 @@ book:
         - Scripting_Tips.qmd
         - Built-In_Commands.qmd
         - awk.qmd
+    - part: Visualization.qmd
+      chapters:
+        - R_Data_Types.qmd
+        - R_Data_Structures.qmd
+        - awk2.qmd
 #    - part: Sequence-Analysis.qmd
 #      chapters: 
 #       - p1c1-pairwise-sequence-alignment.qmd

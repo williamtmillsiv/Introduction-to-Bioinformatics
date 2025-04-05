@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>awk – Introduction to Bioinformatics</title>
+<title>Data Types – Introduction to Bioinformatics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Visualization.html" rel="next">
-<link href="./Built-In_Commands.html" rel="prev">
+<link href="./R_Data_Structures.html" rel="next">
+<link href="./Visualization.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./awk.html">awk</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Visualization.html">R</a></li><li class="breadcrumb-item"><a href="./R_Data_Types.html">Data Types</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./awk.html" class="sidebar-item-text sidebar-link active">
+  <a href="./awk.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">awk</span></a>
   </div>
 </li>
@@ -181,8 +215,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./R_Data_Types.html" class="sidebar-item-text sidebar-link">
+  <a href="./R_Data_Types.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_Data_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -204,9 +244,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./awk.html">awk</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Visualization.html">R</a></li><li class="breadcrumb-item"><a href="./R_Data_Types.html">Data Types</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">awk</h1>
+<h1 class="title">Data Types</h1>
 </div>
 
 
@@ -223,196 +263,171 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<hr>
-<p>awk is scripting language named after its developers (Aho, Weinberger, and Kernighan) (<a href="https://www.geeksforgeeks.org/awk-command-unixlinux-examples/">usage</a>)</p>
-<hr>
-<p>Things to know about awk:</p>
-<ul>
-<li><p>awk refers to columns as field, such as in the variables for number of fields (<code>NF</code>), input field separator (<code>FS</code>), and output field separator (<code>OFS</code>).</p></li>
-<li><p>awk refers to rows as records, such as in the variables for record number (<code>NR</code>), input record separator (<code>RS</code>), and output record separator (<code>ORS</code>).</p></li>
-<li><p>By default, awk recognizes a space or tab as a field separator. If your input file has field separators other than a space or a tab, you need to specify it using the <code>-F</code> flag.</p></li>
-<li><p>awk has several built-in variables that can be used when writing code:</p>
-<ul>
-<li><p><code>$1</code> = field 1 ($2 = field 2, $3 = field 3, …)</p></li>
-<li><p><code>$0</code> = entire record</p></li>
-<li><p><code>NF</code> = number of fields</p></li>
-<li><p><code>NR</code> = number of records</p></li>
-<li><p><code>FS</code> = input field separator; default is white space (i.e.&nbsp;space and tab)</p></li>
-<li><p><code>OFS</code> = output field separator; default is single space</p></li>
-<li><p><code>RS</code> = input record separator; default is new line</p></li>
-<li><p><code>ORS</code> = output record separator; default is new line</p></li>
-<li><p><code>[0-9]</code> = any number</p></li>
-</ul></li>
-</ul>
-<hr>
-<p>Each of the code examples shown below is preceded by viewing the input file to better visualize what each line of code is doing. The <code>$</code> at the beginning of each line of code represents the end of prompt you see in your command line. If you’d like to run the code in these examples, simply copy everything after the <code>$</code> into your command line.</p>
-<p>This is test code</p>
-<pre class="{bash}"><code># Test bash code</code></pre>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Printing all of the fields (synonymous with <code>awk '{print $0}' data.txt</code>)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print a particular field (e.g.&nbsp;field 1)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $1}' data.txt
-GeneNames
-GeneX
-GeneY
-GeneZ</code></pre>
-<p>Set input field separator as comma (,) (synonymous with <code>awk '{ FS = "," } ; {print $1}' data.csv</code>). Try leaving out the <code>-F,</code> and see what happens.</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.csv
-GeneNames,Sample1,Sample2,Sample3
-GeneX,321,5678,689
-GeneY,2354,6700,987
-GeneZ,2315,7890,123
-$ awk -F, '{print $1}' data.txt
-GeneNames
-GeneX
-GeneY
-GeneZ</code></pre>
-<p>Print multiple fields (e.g.&nbsp;field 1 and 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $1,$3}' data.txt
-GeneNames Sample2
-GeneX 5678
-GeneY 6700
-GeneZ 7890</code></pre>
-<p>Print the last field</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk '{print $NF}' data.txt
-Sample3
-689
-987
-123</code></pre>
-<p>Print all records after the first record (synonymous with <code>awk 'NR!=1 {print}' /path/to/file</code>)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR&gt;1 {print}' data.txt
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print a particular record (e.g.&nbsp;record 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR==3 {print}' data.txt
-GeneY 2354  6700  987</code></pre>
-<p>Print all records except for a particular record (e.g.&nbsp;not record 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR!=3 {print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneZ 2315  7890  123</code></pre>
-<p>Print a range of records (e.g.&nbsp;records 2 to 3)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123
-$ awk 'NR==2, NR==3 {print}' data.txt
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
-<p>Print records with fewer than a certain number of fields (e.g.&nbsp;fewer than 4 fields)</p>
-<pre style="background-color: whitesmoke"><code>$ cat data2.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700
-GeneZ 2315  7890  123
-$ awk 'NF&lt;4 {print}' data.txt
-GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneZ 2315  7890  123</code></pre>
-<p>Print records containing a certain string anywhere in record (e.g.&nbsp;<code>abc</code>):</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/abc/ {print}'
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc</code></pre>
-<p>Print records starting with a certain string</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/^abc/ {print}'
-abcd dcba efgh  hgfe</code></pre>
-<p>Print records ending with a certain string. One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e.&nbsp;unix) is <code>\n</code> while the line ending character in Windows is <code>\r\n</code>. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem…</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '/abc$/ {print}'
-abcd dcba efgh  hgfe</code></pre>
-<p>Print records that don’t contain a certain string anywhere in record</p>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '!/abc/ {print}'
-cdef defg  efgh  fghi</code></pre>
-<ul>
-<li>Print records that don’t start with a certain string: <code>awk '!/^string/ {print}' /path/to/file</code></li>
-</ul>
-<pre style="background-color: whitesmoke"><code>$ cat data3.txt
-abcd dcba efgh  hgfe
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi
-$ awk '!/^abc/ {print}'
-bcde dabc  cbad  abdc
-cdef defg  efgh  fghi</code></pre>
-<ul>
-<li><p>Print records that don’t end with a certain string: <code>awk '!/string$/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field contains a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field starts with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /^string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field ends with a string (e.g.&nbsp;field 1): <code>awk '$1 ~ /string$/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field starts with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /^[0-9]/ {print}' /path/to/file</code></p></li>
-<li><p>Print records where a particular field ends with any number (e.g.&nbsp;field 1): <code>awk '$1 ~ /[0-9]$/ {print}' /path/to/file</code></p></li>
-<li><p>Ignore case when looking for records containing a string: <code>awk 'tolower($0) ~ /string/ {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a certain value in a particular field (e.g.&nbsp;the number 10 in field 2): <code>awk '$2==10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that do not contain a certain value in a particular field (e.g.&nbsp;not the number 10 in field 2): <code>awk '$2!=10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a value greater than a certain value in a particular field (e.g.&nbsp;&gt;10 in field 2): <code>awk '$2&gt;10 {print}' /path/to/file</code></p></li>
-<li><p>Print records that contain a value less than a certain value in a particular field (e.g.&nbsp;&lt;10 in field 2): <code>awk '$2&lt;10 {print}' /path/to/file</code></p></li>
-</ul>
-<p>Sum values in a field (e.g.&nbsp;field 2): <code>awk '{sum+=$2;} END{print sum;}' /path/to/file</code></p>
-<ul>
-<li>Remember to add <code>NR&gt;1</code> if your file has a header: <code>awk 'NR&gt;1 {sum+=$2;} END{print sum;}' /path/to/file</code></li>
-</ul>
-<p>Remove blank lines: <code>awk 'NF' /path/to/file</code>&nbsp;</p>
-<p>Print the record number at beginning of record: <code>awk '{print NR,$0}' /path/to/file</code></p>
+<p>R stores the data you give it in the most optimal way that it can for it to do the manipulations and graphing that you desire. Here are the terms we use to describe these classifications:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Type</td>
+<td style="text-align: left;">Classification for how an object is stored internally in R (a.k.a. storage mode)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Class</td>
+<td style="text-align: left;">Broader classification of how an object is stored in R (the more common language you would use in conversation and writing)</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>The term “object” describes any “thing” in R such as numbers, characters, etc. (described below).</p>
+</blockquote>
+<p>You can figure out the type or class of any object by using the <code>typeof()</code> or <code>class()</code> functions, respectively. Here is how we determine the type and class of the object <code>3</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>These operations are called functions. A function is some task you want R to perform and what you put inside the parentheses is the object you want R to perform that function on. In these examples, the “task” you want R to perform is to tell you what the type or class of of an object is and the object in these examples is <code>3</code>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Every function in R has specific requirements for how it is used. To learn about the requirements for any particular function you can use the <code>help()</code> function. For example, to learn how to use the <code>typeof()</code> function, you can run <code>help(typeof)</code>.</p>
+</blockquote>
+<p>In the examples above you’ll notice that <code>typeof()</code> and <code>class()</code> use different terms to describe the same object (in this case, <code>3</code>). Below is a table that helps visualize these distinctions (there are many other types and classes but these are the ones you will see most often).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Class</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">“a”</td>
+<td style="text-align: left;">Character</td>
+<td style="text-align: left;">Character</td>
+<td style="text-align: left;">Letters must be in quotes or they will be interpreted as an object (discussed below)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Double</td>
+<td style="text-align: left;">Numeric</td>
+<td style="text-align: left;">Double = double precision floating point numbers (significand and exponent)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3L</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">Can only be whole numbers (i.e.&nbsp;no decimals)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE or FALSE</td>
+<td style="text-align: left;">Logical</td>
+<td style="text-align: left;">Logical</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><br> In addition to determining the type or class of an object (using <code>typeof()</code> or <code>class()</code>), you can also determine if an object is a particular type or class (using <code>is.double()</code>, <code>is.numeric()</code>, <code>is.integer()</code>, <code>is.character()</code>, <code>is.logical()</code>). For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(<span class="dv">3</span>) <span class="co"># TRUE</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="dv">3</span>) <span class="co"># TRUE</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(<span class="dv">3</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="dv">3</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(<span class="dv">3</span>L) <span class="co"># FALSE</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="dv">3</span>L) <span class="co"># TRUE</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(<span class="dv">3</span>L) <span class="co"># TRUE</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="dv">3</span>L) <span class="co"># FALSE</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">TRUE</span>) <span class="co"># TRUE</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="cn">TRUE</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">TRUE</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="st">"TRUE"</span>) <span class="co"># TRUE</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="st">"abc"</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="st">"abc"</span>) <span class="co"># FALSE</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="st">"abc"</span>) <span class="co"># TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that the “answer” to these functions is logical (<code>TRUE</code> or <code>FALSE</code>); this is a very useful feature of R that you will see later.</p>
+<blockquote class="blockquote">
+<p>Imagine having a data set with a list of cities and their average yearly rainfall totals. With a simple line of code, R can quickly tell you whether each city’s average yearly rainfall is above or below a certain number (outputing <code>TRUE</code> or <code>FALSE</code> for each city).</p>
+</blockquote>
+<p>It is often useful to store some information (numbers, text, etc.) as a variable that can be easily referenced later. For example, rather than having to type out the number 10481034582 every time you need to use it, you can simply save it as a variable (R calls these variables “objects”). Let’s use the letter <code>x</code> as our new object. After executing this function you should see it appear in your R environment under “Values” in the Environment panel in the top-right corner of RStudio:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10481034582</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10481034582</code></pre>
+</div>
+</div>
+<p>You can change the value of your object by running the same code with a different value:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">54321</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 54321</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>CAUTION: this overwriting of an object can’t be undone except by starting over and regenerating it the way you did originally. To see if you have used an object name already, check under “Values” in the Environment panel in the top-right of RStudio.</p>
+</blockquote>
+<p>Now, anytime you need to use that value you can simply use the object instead:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">12345</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">12345</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's overwrite the object x to prove that it is holding the correct value</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">"abcd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"abcd"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>These new objects don’t have to be single letters, they can also be multiple letters or words; they just can’t start with a number or contain any special characters other than an underscore <code>_</code>. This can help you remember which objects are which:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>big_number <span class="ot">&lt;-</span> <span class="dv">10481034582</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>big_number</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10481034582</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>small_number <span class="ot">&lt;-</span> <span class="dv">54321</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>small_number</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 54321</code></pre>
+</div>
+</div>
+<p>As you start generating your own code and pipelines for analyzing data, you will find this feature particularly useful as you can avoid having to change every occurrence of an object and instead just change it a single time when you originally create the object.</p>
 
 
 
@@ -839,13 +854,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Built-In_Commands.html" class="pagination-link" aria-label="Built-In Command Line Tools">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Built-In Command Line Tools</span>
+      <a href="./Visualization.html" class="pagination-link" aria-label="R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Visualization.html" class="pagination-link" aria-label="R">
-        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R_Data_Structures.html" class="pagination-link" aria-label="Data Structures">
+        <span class="nav-page-text">Data Structures</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
