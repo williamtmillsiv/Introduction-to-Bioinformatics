@@ -51,7 +51,7 @@ This work is free to use, and is licensed under a <a rel="license" href="http://
 
 ::::: grid
 ::: g-col-9
-I earned by B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biology at Mount St. Mary's University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I've learned with scientists looking to step into bioinformatics for the first time.
+I earned my B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biology at Mount St. Mary's University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I've learned with scientists looking to step into bioinformatics for the first time.
 :::
 
 ::: g-col-3
