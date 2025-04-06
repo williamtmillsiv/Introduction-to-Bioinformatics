@@ -10,24 +10,24 @@ book:
   date: "Last updated: 4/3/2025"
   chapters:
     - part: index.qmd
-      chapters: 
-       - p0c1-what-is-bioinformatics.qmd
+#      chapters: 
+#       - p0c1-what-is-bioinformatics.qmd
 #       - p0c2-ethical-considerations.qmd
 #       - p0c3-historical-perspective.qmd
 #       - p0c4-biological-databases.qmd
     - part: command_line.qmd
       chapters:
         - getting_started.qmd
-        - terminology.qmd
+#        - terminology.qmd
         - Command_Line_Tips.qmd
         - Scripting_Tips.qmd
         - Built-In_Commands.qmd
         - awk.qmd
     - part: Visualization.qmd
       chapters:
+        - R_Install.qmd
         - R_Data_Types.qmd
         - R_Data_Structures.qmd
-        - awk2.qmd
 #    - part: Sequence-Analysis.qmd
 #      chapters: 
 #       - p1c1-pairwise-sequence-alignment.qmd

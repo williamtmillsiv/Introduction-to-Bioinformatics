@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command Line Tips – Introduction to Bioinformatics</title>
+<title>Installing R and RStudio – Introduction to Bioinformatics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Scripting_Tips.html" rel="next">
-<link href="./getting_started.html" rel="prev">
+<link href="./R_Data_Types.html" rel="next">
+<link href="./Visualization.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./Command_Line_Tips.html">Command Line Tips</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Visualization.html">R</a></li><li class="breadcrumb-item"><a href="./R_Install.html">Installing R and RStudio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -127,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Command_Line_Tips.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Command_Line_Tips.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line Tips</span></a>
   </div>
 </li>
@@ -162,6 +162,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./R_Install.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installing R and RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./R_Data_Types.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Types</span></a>
   </div>
@@ -185,9 +191,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./Command_Line_Tips.html">Command Line Tips</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Visualization.html">R</a></li><li class="breadcrumb-item"><a href="./R_Install.html">Installing R and RStudio</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Command Line Tips</h1>
+<h1 class="title">Installing R and RStudio</h1>
 </div>
 
 
@@ -204,17 +210,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>Press ‘tab’ button to autofill</p></li>
-<li><p>Depending on shell, hitting tab once (zsh) or twice (bash) will display options if multiple exist</p></li>
-<li><p>Press ‘up’ arrow to recall last command</p></li>
-<li><p>‘Control + A’ to move to beginning of line</p></li>
-<li><p>‘Control + E’ to move to end of line</p></li>
-<li><p>‘Control + C’ to end (i.e.&nbsp;kill) command</p></li>
-<li><p>‘Control + Z’ to exit manual</p></li>
-<li><p>Avoid using spaces when naming files or folders</p></li>
-<li><p>Beware curly (i.e.&nbsp;smart) quotes <code>‘</code>, be sure to use straight quotes <code>'</code>. Curly quotes usually come from text editors like Microsoft Word and don’t work when coding. To ensure you are using straight quotes, write code in a plain-text editor like TextEdit (Mac) or Notepad (Windows) and turn off spelling and grammar checking.</p></li>
-</ul>
+<p>R is a free software environment for statistical computing and graphics that is very popular for processing and visualizing biological data. RStudio integrated development environment (IDE) is a set of tools built to help you be more productive with R (and Python).</p>
+<ol type="1">
+<li><p>Downloaded R: <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a></p></li>
+<li><p>Download RStudio Desktop: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
+</ol>
+<p>Alternatively, RStudio can be used <a href="https://posit.cloud/">online</a>, however this version may have difficulty with more computationally-heavy processes.</p>
 
 
 
@@ -641,13 +642,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./getting_started.html" class="pagination-link" aria-label="Getting Started">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started</span>
+      <a href="./Visualization.html" class="pagination-link" aria-label="R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Scripting_Tips.html" class="pagination-link" aria-label="Scripting Tips">
-        <span class="nav-page-text">Scripting Tips</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R_Data_Types.html" class="pagination-link" aria-label="Data Types">
+        <span class="nav-page-text">Data Types</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

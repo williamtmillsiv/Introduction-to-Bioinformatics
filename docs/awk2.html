@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./R_Data_Types.html" rel="prev">
+<link href="./R_Data_Structures.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -173,12 +173,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./terminology.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Terminology</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Command_Line_Tips.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line Tips</span></a>
   </div>
@@ -216,6 +210,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./R_Data_Types.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R_Data_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,22 +277,318 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <hr>
-<p>Each of the code examples shown below is preceded by viewing the input file to better visualize what each line of code is doing. The <code>$</code> at the beginning of each line of code represents the end of prompt you see in your command line. If you’d like to run the code in these examples, simply copy everything after the <code>$</code> into your command line.</p>
+<p>Below are examples of how the awk command can be used to achieve lots of desired outcomes when processing data files.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data.txt <span class="co"># View data.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>GeneNames Sample1 Sample2 Sample3
-GeneX 321 5678  689
-GeneY 2354  6700  987
-GeneZ 2315  7890  123</code></pre>
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
 </div>
 </div>
-<p>This is a test R code block</p>
+<p>Printing all of the fields (synonymous with <code>awk '{print $0}' data.txt</code>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test R code</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 50  2</code></pre>
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print a particular field (e.g.&nbsp;field 1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print $1}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes
+GeneX
+GeneY
+GeneZ</code></pre>
+</div>
+</div>
+<p>If input file uses a comma (<code>,</code>) as a field separator instead of space or tab, set input field separator as (<code>,</code>) (synonymous with <code>awk '{ FS = "," } ; {print $1}' data.csv</code>).</p>
+<blockquote class="blockquote">
+<p>Try leaving out the <code>-F,</code> and see what happens.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data.csv <span class="co"># View comma separated file (.csv)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes,Sample1,Sample2,Sample3
+GeneX,3210,5678,689
+GeneY,2354,6700,987
+GeneZ,2315,7890,123</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F,</span> <span class="st">'{print $1}'</span> data.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes
+GeneX
+GeneY
+GeneZ</code></pre>
+</div>
+</div>
+<p>Print multiple fields (e.g.&nbsp;field 1 and 3)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print $1,$3}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes Sample2
+GeneX 5678
+GeneY 6700
+GeneZ 7890</code></pre>
+</div>
+</div>
+<p>Print the last field</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print $NF}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample3
+689
+987
+123</code></pre>
+</div>
+</div>
+<p>Print all records after the first record (synonymous with <code>awk 'NR!=1 {print}' /path/to/file</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NR&gt;1 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print a particular record (e.g.&nbsp;record 3)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NR==3 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneY   2354    6700    987</code></pre>
+</div>
+</div>
+<p>Print all records except for a particular record (e.g.&nbsp;not record 3)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NR!=3 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print a range of records (e.g.&nbsp;records 2 to 3)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NR==2, NR==3 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneX   3210    5678    689
+GeneY   2354    6700    987</code></pre>
+</div>
+</div>
+<p>Print records with fewer than a certain number of fields (e.g.&nbsp;fewer than 4 fields)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data2.txt <span class="co"># View data2.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NF&lt;4 {print}'</span> data2.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneY   2354    6700    </code></pre>
+</div>
+</div>
+<p>Print records containing a certain string anywhere in record (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc
+bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'/abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc
+bcde    dabc    cbad    abdc</code></pre>
+</div>
+</div>
+<p>Print records starting with a certain string (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'/^abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc</code></pre>
+</div>
+</div>
+<p>Print records ending with a certain string (e.g.&nbsp;<code>abc</code>) &gt;One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e.&nbsp;unix) is <code>\n</code> while the line ending character in Windows is <code>\r\n</code>. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'/abc$/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc</code></pre>
+</div>
+</div>
+<p>Print records that don’t contain a certain string anywhere in record (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'!/abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cdef    defg    efgh    fghi</code></pre>
+</div>
+</div>
+<p>Print records that don’t start with a certain string (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'!/^abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi</code></pre>
+</div>
+</div>
+<p>Print records that don’t end with a certain string (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'!/abc$/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi</code></pre>
+</div>
+</div>
+<p>Print records where a particular field contains a string (e.g.&nbsp;<code>abc</code> in field 1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$1 ~ /abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc</code></pre>
+</div>
+</div>
+<p>Print records where a particular field starts with a string (e.g.&nbsp;<code>abc</code> in field 1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$1 ~ /^abc/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc</code></pre>
+</div>
+</div>
+<p>Print records where a particular field ends with a string (e.g.&nbsp;<code>abc</code> in field 4)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$4 ~ /abc$/ {print}'</span> data3.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>abcd    dcba    efgh    aabc</code></pre>
+</div>
+</div>
+<p>Print records where a particular field starts with any number (e.g.&nbsp;field 1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data4.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1ABC    D1CB    EF1G    AAB1
+b2cd    da2b    cba2    2abc
+CD3E    DEF3    3EFG    F2GH</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$1 ~ /^[0-9]/ {print}'</span> data4.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1ABC    D1CB    EF1G    AAB1</code></pre>
+</div>
+</div>
+<p>Print records where a particular field ends with any number (e.g.&nbsp;field 1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$1 ~ /[0-9]$/ {print}'</span> data4.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ignore case when looking for records containing a string (e.g.&nbsp;<code>abc</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'tolower($0) ~ /abc/ {print}'</span> data4.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1ABC    D1CB    EF1G    AAB1
+b2cd    da2b    cba2    2abc</code></pre>
+</div>
+</div>
+<p>Print records that contain a certain value in a particular field (e.g.&nbsp;the number 3210 in field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$2==3210 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneX   3210    5678    689</code></pre>
+</div>
+</div>
+<p>Print records that do not contain a certain value in a particular field (e.g.&nbsp;not the number 10 in field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$2!=3210 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print records that contain a value greater than a certain value in a particular field (e.g.&nbsp;&gt;2354 in field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$2&gt;2354 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689</code></pre>
+</div>
+</div>
+<p>Print records that contain a value less than a certain value in a particular field (e.g.&nbsp;&lt;2354 in field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$2&lt;2354 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print records that contain a value less than or equal to a certain value in a particular field (e.g.&nbsp;&lt;2354 in field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'$2&lt;=2354 {print}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Sum values in a field (e.g.&nbsp;field 2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{sum+=$2;} END{print sum;}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7879</code></pre>
+</div>
+</div>
+<p>Remember to add <code>NR&gt;1</code> if your file has a header in case the headers are numeric</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NR&gt;1 {sum+=$2;} END{print sum;}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7879</code></pre>
+</div>
+</div>
+<p>Remove blank lines</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data5.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'NF'</span> data5.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123</code></pre>
+</div>
+</div>
+<p>Print the record number at beginning of record</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'{print NR,$0}'</span> data.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 Genes Sample1 Sample2 Sample3
+2 GeneX 3210    5678    689
+3 GeneY 2354    6700    987
+4 GeneZ 2315    7890    123</code></pre>
 </div>
 </div>
 
@@ -721,8 +1017,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./R_Data_Types.html" class="pagination-link" aria-label="Data Types">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Types</span>
+      <a href="./R_Data_Structures.html" class="pagination-link" aria-label="Data Structures">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Structures</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

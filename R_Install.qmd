@@ -1,0 +1,9 @@
+# Installing R and RStudio {.unnumbered}
+
+R is a free software environment for statistical computing and graphics that is very popular for processing and visualizing biological data. RStudio integrated development environment (IDE) is a set of tools built to help you be more productive with R (and Python).
+
+1.  Downloaded R: <https://cran.rstudio.com/>
+
+2.  Download RStudio Desktop: <https://posit.co/download/rstudio-desktop/>
+
+Alternatively, RStudio can be used [online](https://posit.cloud/), however this version may have difficulty with more computationally-heavy processes.

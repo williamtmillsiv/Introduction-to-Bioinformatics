@@ -3,13 +3,13 @@
 In the previous section we discussed storing objects as variables so that they can be easily referenced later:
 
 ```{r}
-x <- 54321
-x
-typeof(x)
+x <- 54321 # Store the number 54321 as a object called 'x'
+x # View the contents of x
+typeof(x) # Check the data type of x
 
-y <- "science"
-y
-typeof(y)
+y <- "science" # Store the word "science" as a object called 'y'
+y # View the contents of y
+typeof(y) # Check the data type of y
 ```
 
 R can handle much more than a single object in a variable. You can add thousands of objects to a single variable and they can be of the same or different types and even have multiple rows or columns. The terms used to describe how multiple objects are stored depends on whether the objects are of the same (homogeneous) or different (heterogeneous) types and their dimensions:
@@ -23,27 +23,90 @@ R can handle much more than a single object in a variable. You can add thousands
 In the simplest case, a group of objects of the same type can be combined (using combine, `c()`) to form an atomic vector:
 
 ```{r}
-#Combining several numbers (type: double) into a vector stored as an object called "string"
-
-string <- c(1,2,3,4,5)
-string
-typeof(string)
-is.atomic(string)
+string <- c(1,2,3,4,5) # Create an object called 'string' containing the numbers 1-5
+string # View the contents of string
+typeof(string) # Check the data type of string
+is.atomic(string) # Check if string is an atomic vector
 ```
 
-However, if you try to combine objects of different types using `c()`, R will try to convert them all to the same data type:
+However, if you try to combine objects of different types using `c()`, R will force (i.e. coerce) them all to the same data type (in this case, characters):
 
 ```{r}
-string <- c(1,2,3,4,5,"six")
-string
-typeof(string)
-is.atomic(string)
+string <- c(1,2,3,4,5,"six") # Create an object called 'string' containing the numbers 1-5 and the word "six"
+string # View the contents of string
+typeof(string) # Check the data type of string
+is.atomic(string) # Check if string is an atomic vector
 ```
 
-To ensure that the original data type is preserved, you can intentionally create a list:
+To ensure that the original data type is preserved, you can instead use a list:
 
 ```{r}
-string <- list(1,2,3,4,5,"six")
-typeof(string)
-is.atomic(string)
+string <- list(1,2,3,4,5,"six") # Create an object called 'string' containing the numbers 1-5 and the word "six". stored as a list
+typeof(string) # Check the data type of string
+is.atomic(string) # Check if string is an atomic vector
 ```
+
+You can even confirm that the data type of each element in the list has been preserved (this code uses a process called subsetting, a topic that will be discussed later):
+
+```{r}
+# Determine the data type of the 2nd element in the list
+typeof(string[[2]]) 
+
+# Determine the data type of the 6th element in the list
+typeof(string[[6]])
+```
+
+While atomic vectors and lists are one-dimensional data structures, data can also be stored in multiple dimensions. A two-dimensional structure that contains data of the same type is called a matrix. There are multiple ways to create a matrix. One of them is by using a column bind (`cbind()`) or row bind (`rbind()`):
+
+```{r}
+matrix_A <- cbind(c(1,2,3),c(4,5,6)) # Create a matrix using cbind and store it as an object called 'matrix_A'
+matrix_A # View the contents of matrix_A
+typeof(matrix_A) # Check the data type of matrix_A
+is.matrix(matrix_A) # Check if matrix_A is a matrix
+```
+
+```{r}
+matrix_B <- rbind(c(1,2,3),c(4,5,6)) # Create a matrix using rbind and store it as an object called 'matrix_B'
+matrix_B # View the contents of matrix_B
+typeof(matrix_B) # Check the data type of matrix_B
+is.matrix(matrix_B) # Check if matrix_B is a matrix
+```
+
+As with using c() above to create a vector, R will coerce everything to the same data type:
+
+```{r}
+matrix_C <- rbind(c(1,2,"three"),c(4,5,6)) # Create a matrix using rbind and store it as an object called 'matrix_C'
+matrix_C # View the contents of matrix_C
+typeof(matrix_C) # Check the data type of matrix_C
+```
+
+Even if you try to make one row of the matrix a list to preserve the different data types, R will coerce every row of the matrix to a list so that it is technically still the same data type throughout:
+
+```{r}
+matrix_C <- rbind(list(1,2,"three"),c(4,5,6)) # Create a matrix using rbind and store it as an object called 'matrix_C'
+matrix_C # View the contents of matrix_C
+typeof(matrix_C) # Check the data type of matrix_C
+is.matrix(matrix_C) # Check if matrix_C is a matrix
+typeof(matrix_C[2,]) # Check the type of data stored in row 2 of matrix_C
+```
+
+So while this technically does allow the matrix to hold different data types, storing them within lists prevents certain matrix operations from being able to be used on the matrix.
+
+To preserve different data types in a two-dimensional structure without needing to store them as lists, you can instead use a data frame. This will allow atomic vectors of different types to be combined as columns within a single structure:
+
+```{r}
+dataframe_A <- data.frame(c(1,2,3),c("four", "five", "six")) # Create a data frame and store it as an object called dataframe_A
+dataframe_A # View dataframe_A
+typeof(dataframe_A[,1]) # Check type of data in column 1 of dataframe_A
+typeof(dataframe_A[,2]) # Check type of data in column 2 of dataframe_A
+is.data.frame(dataframe_A) # Check if dataframe_A is a data frame?
+```
+
+Finally, a data structure with two or more dimensions is called an array. Arrays are similar to matrices in that they can only store one data type (unless you store the data as lists as described above for matrices, which limits which array functions can be used):
+
+```{r}
+array_A <- array(1:12, dim = c(2, 3, 2)) # Create an array using the numbers 1-12 stored in 2 rows, 3 columns, and 2 "layers" (i.e. the third dimension) and store it as an object called array_A
+array_A # View the contents of array_A
+```
+
+The most common data structure used in bioinformatics is a data frame, though you may also use matrices for simpler datasets. Knowing how each data structure is composed and what data type(s) can be stored within them will be very useful when trying to perform operations on these structures (as will be discussed later).
