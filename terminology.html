@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Getting Started – Introduction to Bioinformatics</title>
+<title>terminology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,231 +23,49 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Command_Line_Tips.html" rel="next">
-<link href="./command_line.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="terminology_files/libs/clipboard/clipboard.min.js"></script>
+<script src="terminology_files/libs/quarto-html/quarto.js"></script>
+<script src="terminology_files/libs/quarto-html/popper.min.js"></script>
+<script src="terminology_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="terminology_files/libs/quarto-html/anchor.min.js"></script>
+<link href="terminology_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="terminology_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="terminology_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="terminology_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="terminology_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Introduction to Bioinformatics</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Introduction</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./command_line.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Command Line</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Getting Started</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Command_Line_Tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Command Line Tips</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Scripting_Tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scripting Tips</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Built-In_Commands.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Built-In Command Line Tools</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./awk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">awk</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Installing R and RStudio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Data_Types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Data_Structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Structures</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#windows-using-windows-subsystem-for-linux-wsl" id="toc-windows-using-windows-subsystem-for-linux-wsl" class="nav-link active" data-scroll-target="#windows-using-windows-subsystem-for-linux-wsl">Windows (using Windows Subsystem for Linux (WSL))</a></li>
-  <li><a href="#mac-using-terminal" id="toc-mac-using-terminal" class="nav-link" data-scroll-target="#mac-using-terminal">Mac (using Terminal)</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./command_line.html">Command Line</a></li><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Getting Started</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>In order to perform most bioinformatic analyses, users will need access to a Unix or Unix-like operating system. Windows users will need to install Windows Subsystem for Linux (WSL) while Mac users just need access to the Terminal application. Below are instructions for accessing a Unix or Unix-like command line for Windows and Mac users.</p>
-<section id="windows-using-windows-subsystem-for-linux-wsl" class="level2">
-<h2 class="anchored" data-anchor-id="windows-using-windows-subsystem-for-linux-wsl">Windows (using Windows Subsystem for Linux (WSL))</h2>
-<ol type="1">
-<li>Open the Windows Terminal application</li>
-<li>Run (i.e.&nbsp;type in) <code>wsl --install</code> (and click enter)</li>
-<li>Restart your device</li>
-<li>Open Windows Terminal</li>
-<li>Run <code>wsl</code></li>
-<li>By default this should open the distribution (Ubuntu by default)</li>
-</ol>
-<ul>
-<li><p>If this doesn’t work, you may need to run <code>wsl.exe --install -d Ubuntu</code> and may need to restart your computer again</p></li>
-<li><p>Enter a username and password (does not need to match your computer login)</p>
-<ul>
-<li>You won’t see what you type in appear on the screen, just hit enter when you are done</li>
-</ul></li>
-<li><p>To log out of the distribution, run <code>exit</code></p></li>
-<li><p>Every time you open Windows Terminal, you need to run <code>wsl</code> to turn on Windows Subsystem for Linux</p></li>
-</ul>
-</section>
-<section id="mac-using-terminal" class="level2">
-<h2 class="anchored" data-anchor-id="mac-using-terminal">Mac (using Terminal)</h2>
-<ol type="1">
-<li>Open Terminal (Applications &gt; Utilities &gt; Terminal)</li>
-</ol>
-
-
+<section id="terminology" class="level1 unnumbered">
+<h1 class="unnumbered">Terminology</h1>
+<p>As with any field, there are certain words in phrases used by people in those fields that may not be familiar to others. The same is true with bioinformatics. Below are a few common terms used in bioinformatics that you should become familiar with as you will encounter them frequently.</p>
+<p><strong>command line</strong>: a text-based interface where you can interact with the operating system (using a shell)</p>
+<p>In English: an app that lets you type instructions for controlling the computer</p>
+<p>Default command line interfaces on various operating systems:</p>
+<p>Windows: Windows Terminal</p>
+<p>macOS: Terminal</p>
+<p>Linux: (usually) Terminal</p>
+<p>shell: a computer program that allows users to interact with the operating system rather than using a graphical user interface (GUI)</p>
+<p>In English: a way of interacting with your computer without pointing and clicking with a mouse</p>
+<p>Why is this helpful? What if you wanted to change the name of 10 files on your computer? If you used your mouse to find the files on your computer and then change their names one by one, this could take several minutes. However, using a shell and the command line, you can perform this task in less than a second with the right instructions (i.e.&nbsp;code).</p>
+<p>Default shells on various operating systems:</p>
+<p>Windows: Powershell</p>
+<p>macOS: Z shell (zsh)</p>
+<p>Linux: (usually) Bourne-again shell (bash)</p>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -668,18 +486,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./command_line.html" class="pagination-link" aria-label="Command Line">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Command Line</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./Command_Line_Tips.html" class="pagination-link" aria-label="Command Line Tips">
-        <span class="nav-page-text">Command Line Tips</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
