@@ -25,7 +25,8 @@ book:
         - Scripting_Tips.qmd
         - Built-In_Commands.qmd
         - awk.qmd
-        - example.qmd
+        - text: "Python Example"
+          href: example.qmd
     - part: Visualization.qmd
       chapters:
         - R_Install.qmd
