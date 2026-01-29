@@ -1,5 +1,6 @@
 ---
 title: Python Example
+number: false
 engine: knitr
 format: 
     live-html:
@@ -7,6 +8,6 @@ format:
 ---
 
 ```{pyodide}
-for x in range(5):
+for x in range(6):
   print(x ** 2)
 ```
