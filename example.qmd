@@ -1,10 +1,12 @@
 ---
 title: Python Example
 engine: knitr
-format: live-html
+format: 
+    live-html:
+        number-sections: false
 ---
 
 ```{pyodide}
-for x in range(7):
+for x in range(8):
   print(x ** 2)
 ```
