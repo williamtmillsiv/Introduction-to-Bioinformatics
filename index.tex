@@ -1,0 +1,1932 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Introduction to Bioinformatics},
+  pdfauthor={William T. Mills IV},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Introduction to Bioinformatics}
+\author{William T. Mills IV}
+\date{2025-04-03}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\part{Introduction}
+
+This book is a \textbf{\emph{work in progress}}. Please excuse any
+disorganization or incomplete pages.
+
+Bioinformatics is the use of computational tools to process biological
+data. As science has progressed, the datasets produced during scientific
+experiments have become larger and more complicated and therefore the
+ability to glean insights from the data has become less and less
+straightforward. The growing complexity and size of scientific data has
+necessitated an increased reliance on computational tools for storing,
+analyzing, and visualizing data. The past 20 years of scientific
+research since the complete sequencing of the human genome has seen an
+enormous increase in the types of data being generated and the number of
+tools used to process them. While the number of available tools is too
+numerous to discuss in a single textbook, and there exists great
+variability in user preferences, this book will explore some of the most
+popular and widely used tools for processing the most common types of
+biological data.
+
+\hfill
+\includegraphics[width=3.125in,height=\textheight,keepaspectratio]{images/BookCover.png}
+
+This book will explore what types of biological data are out there, what
+tools are available to process them, and how you can begin processing
+data on your own computer. Even though the main emphasis of this book
+will be helping readers understand how to process sequencing data, many
+of the ideas and skills learned will be useful for dealing with other
+forms of biological data.
+
+\section*{Prerequisites}\label{prerequisites}
+\addcontentsline{toc}{section}{Prerequisites}
+
+\markright{Prerequisites}
+
+While this book is intended for readers with no computational
+experience, a general understanding of molecular biology (such as would
+be learned in an introductory biology course) would be useful for
+understanding the types of data being processed and the analyses being
+performed. When possible, references will be included to direct readers
+to additional resources for understanding biological concepts.
+
+\section*{Structure of the Book}\label{structure-of-the-book}
+\addcontentsline{toc}{section}{Structure of the Book}
+
+\markright{Structure of the Book}
+
+This book is broken up into \_\_\_ main sections:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Section 1
+\item
+  Section 2
+\item
+  Section 3
+\item
+  Section 4
+\item
+  Section 5
+\end{enumerate}
+
+Each section contains several chapters that dive into the concepts that
+comprise that section. Each chapter will include references to
+additional resources that readers may pursue for more advanced
+information about the topic being discussed. Additionally, exercises
+will be included in each chapter to help readers put newly learned
+skills to the test and see real-world applications for the topics being
+learned.
+
+\section*{License}\label{license}
+\addcontentsline{toc}{section}{License}
+
+\markright{License}
+
+This work is free to use, and is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License.
+
+\section*{About Me}\label{about-me}
+\addcontentsline{toc}{section}{About Me}
+
+\markright{About Me}
+
+I earned my B.S. in Biochemistry from the University of Virginia
+(Charlottesville, VA) in 2017 and my Ph.D.~in Biological Chemistry from
+the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023.
+I am now an Assistant Professor of Biology at Mount St.~Mary's
+University (Emmitsburg, MD). I began working in bioinformatics during
+graduate school where I developed pipelines for processing novel types
+of sequencing data. While my formal training was in chemistry and
+biology, my experience in bioinformatics was largely self taught. I now
+strive to share what I've learned with scientists looking to step into
+bioinformatics for the first time.
+
+\hfill
+\includegraphics[width=2.08333in,height=\textheight,keepaspectratio]{images/Headshot.jpg}
+
+Please contribute to this book by submitting your feedback:
+\url{https://github.com/williamtmills/Introduction-to-Bioinformatics}
+
+This is a Quarto book. To learn more about Quarto books visit
+\url{https://quarto.org/docs/books}.
+
+\part{Command Line}
+
+\chapter*{Getting Started}\label{getting-started}
+\addcontentsline{toc}{chapter}{Getting Started}
+
+\markboth{Getting Started}{Getting Started}
+
+In order to perform most bioinformatic analyses, users will need access
+to a Unix or Unix-like operating system. Windows users will need to
+install Windows Subsystem for Linux (WSL) while Mac users just need
+access to the Terminal application. Below are instructions for accessing
+a Unix or Unix-like command line for Windows and Mac users.
+
+\section*{Windows (using Windows Subsystem for Linux
+(WSL))}\label{windows-using-windows-subsystem-for-linux-wsl}
+\addcontentsline{toc}{section}{Windows (using Windows Subsystem for
+Linux (WSL))}
+
+\markright{Windows (using Windows Subsystem for Linux (WSL))}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the Windows Terminal application
+\item
+  Run (i.e.~type in) \texttt{wsl\ -\/-install} (and click enter)
+\item
+  Restart your device
+\item
+  Open Windows Terminal
+\item
+  Run \texttt{wsl}
+\item
+  By default this should open the distribution (Ubuntu by default)
+\end{enumerate}
+
+\begin{itemize}
+\item
+  If this doesn't work, you may need to run
+  \texttt{wsl.exe\ -\/-install\ -d\ Ubuntu} and may need to restart your
+  computer again
+\item
+  Enter a username and password (does not need to match your computer
+  login)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    You won't see what you type in appear on the screen, just hit enter
+    when you are done
+  \end{itemize}
+\item
+  To log out of the distribution, run \texttt{exit}
+\item
+  Every time you open Windows Terminal, you need to run \texttt{wsl} to
+  turn on Windows Subsystem for Linux
+\end{itemize}
+
+\section*{Mac (using Terminal)}\label{mac-using-terminal}
+\addcontentsline{toc}{section}{Mac (using Terminal)}
+
+\markright{Mac (using Terminal)}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open Terminal (Applications \textgreater{} Utilities \textgreater{}
+  Terminal)
+\end{enumerate}
+
+\chapter*{Command Line Tips}\label{command-line-tips}
+\addcontentsline{toc}{chapter}{Command Line Tips}
+
+\markboth{Command Line Tips}{Command Line Tips}
+
+\begin{itemize}
+\item
+  Press `tab' button to autofill
+\item
+  Depending on shell, hitting tab once (zsh) or twice (bash) will
+  display options if multiple exist
+\item
+  Press `up' arrow to recall last command
+\item
+  `Control + A' to move to beginning of line
+\item
+  `Control + E' to move to end of line
+\item
+  `Control + C' to end (i.e.~kill) command
+\item
+  `Control + Z' to exit manual
+\item
+  Avoid using spaces when naming files or folders
+\item
+  Beware curly (i.e.~smart) quotes \texttt{‘}, be sure to use straight
+  quotes \texttt{\textquotesingle{}}. Curly quotes usually come from
+  text editors like Microsoft Word and don't work when coding. To ensure
+  you are using straight quotes, write code in a plain-text editor like
+  TextEdit (Mac) or Notepad (Windows) and turn off spelling and grammar
+  checking.
+\end{itemize}
+
+\chapter*{Scripting Tips}\label{scripting-tips}
+\addcontentsline{toc}{chapter}{Scripting Tips}
+
+\markboth{Scripting Tips}{Scripting Tips}
+
+\begin{itemize}
+\item
+  When using a bash shell, start every script with \texttt{\#!/bin/bash}
+\item
+  Write scripts with a plain-text editor such as TextEdit (Mac) or
+  Notepad (Windows)
+\item
+  Turn off spelling and grammar checking:
+
+  \begin{itemize}
+  \item
+    In TextEdit (Mac): Edit \textgreater{} Spelling and Grammar
+    \textgreater{} Uncheck `Check Spelling While Typing' and `Correct
+    Spelling Automatically'
+  \item
+    In Notepad (Windows): Select Setting (top right) \textgreater{}
+    Scroll down to Spelling section \textgreater{} Toggle off
+    `Autocorrect' and `Spell Check'
+  \end{itemize}
+\item
+  Thoroughly annotate scripts (adding a \texttt{\#} at the beginning of
+  a line causes it to be ignored when the computer reads the script).
+\end{itemize}
+
+\chapter*{Built-In Command Line
+Tools}\label{built-in-command-line-tools}
+\addcontentsline{toc}{chapter}{Built-In Command Line Tools}
+
+\markboth{Built-In Command Line Tools}{Built-In Command Line Tools}
+
+Your terminal will have several commands already built into the command
+line. Below are a few of them with examples of how they are used.
+
+\texttt{pwd}: print working directory (where am I currently?)
+
+~
+
+\texttt{/}: root directory (folder that holds all other folders)\\
+\texttt{./}: current directory (current folder)\\
+\texttt{../}: parent directory (folder containing your current folder)
+
+~
+
+\texttt{ls}: list directory contents (list everything in current folder)
+(\href{https://www.geeksforgeeks.org/ls-command-in-linux/}{usage})
+
+\begin{itemize}
+\item
+  Flags:
+
+  \begin{itemize}
+  \item
+    \texttt{-l}: long format (permissions, sizes, dates, etc.)
+  \item
+    \texttt{-F}: indicate item types
+
+    \begin{itemize}
+    \item
+      trailing / = directory
+    \item
+      @ = link
+    \item
+      * = executable
+    \end{itemize}
+  \item
+    \texttt{-r}: reverse order (reverse alphabetic order)
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{mkdir}: make directory (i.e.~folder)
+(\href{https://www.geeksforgeeks.org/mkdir-command-in-linux-with-examples/}{usage})
+
+~
+
+\texttt{mv}: move object
+(\href{https://www.geeksforgeeks.org/mv-command-linux-examples/}{usage})
+
+\begin{itemize}
+\item
+  \texttt{mv\ {[}source(s){]}\ {[}destination{]}}
+\item
+  \textbf{*Warning*} Will overwrite object if name already exists
+\item
+  When in the same folder: renames object
+\item
+  Flags:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{-i}: interactive (ask for confirmation before overwriting)
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{cp}: copy object
+(\href{https://www.geeksforgeeks.org/cp-command-linux-examples/}{usage})
+
+\begin{itemize}
+\item
+  cp {[}source object(s){]} {[}destination{]}
+\item
+  \textbf{*Warning*} Will overwrite object if name already exists
+\item
+  Flags:
+
+  \begin{itemize}
+  \item
+    -R: copy directory (i.e.~folder)
+  \item
+    -i: interactive (ask for confirmation before overwriting)
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{head}: display the beginning (i.e.~top) of a file
+(\href{https://www.geeksforgeeks.org/head-command-linux-examples/}{usage})
+
+\begin{itemize}
+\item
+  Flags:
+
+  \begin{itemize}
+  \item
+    \texttt{-1}: display first row
+  \item
+    \texttt{-3}: display first 3 rows
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{tail}: display the end (i.e.~bottom) of a file
+(\href{https://www.geeksforgeeks.org/tail-command-linux-examples/}{usage})
+
+\begin{itemize}
+\item
+  Flags:
+
+  \begin{itemize}
+  \item
+    \texttt{-1}: display last row
+  \item
+    \texttt{-3}: display last 3 rows
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{\textbar{}} (shift + backslash): pipe (use outputs from one
+command as inputs for another)
+
+\begin{itemize}
+\item
+  Example: display the 10th row of a file
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{head\ -10\ path/to/file\ \textbar{}\ tail\ -1}
+  \end{itemize}
+\end{itemize}
+
+~
+
+\texttt{wc}: word count (lines, words, characters)
+(\href{https://www.geeksforgeeks.org/wc-command-linux-examples/}{usage})
+
+\begin{itemize}
+\item
+  Flags:
+
+  \begin{itemize}
+  \item
+    \texttt{-l}: lines
+  \item
+    \texttt{-w}: words
+  \item
+    \texttt{-c}: characters
+  \end{itemize}
+\end{itemize}
+
+~
+
+\chapter*{Python Example 2}\label{python-example-2}
+\addcontentsline{toc}{chapter}{Python Example 2}
+
+\markboth{Python Example 2}{Python Example 2}
+
+\section*{Try This Interactive Python
+Code}\label{try-this-interactive-python-code}
+\addcontentsline{toc}{section}{Try This Interactive Python Code}
+
+\markright{Try This Interactive Python Code}
+
+Click ``Run Code'' to execute:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for x in range(12):}
+\NormalTok{  print(x ** 2)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{awk}\label{awk}
+\addcontentsline{toc}{chapter}{awk}
+
+\markboth{awk}{awk}
+
+awk is scripting language named after its developers (Aho, Weinberger,
+and Kernighan)
+(\href{https://www.geeksforgeeks.org/awk-command-unixlinux-examples/}{usage})
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Things to know about awk:
+
+\begin{itemize}
+\item
+  awk refers to columns as field, such as in the variables for number of
+  fields (\texttt{NF}), input field separator (\texttt{FS}), and output
+  field separator (\texttt{OFS}).
+\item
+  awk refers to rows as records, such as in the variables for record
+  number (\texttt{NR}), input record separator (\texttt{RS}), and output
+  record separator (\texttt{ORS}).
+\item
+  By default, awk recognizes a space or tab as a field separator. If
+  your input file has field separators other than a space or a tab, you
+  need to specify it using the \texttt{-F} flag.
+\item
+  awk has several built-in variables that can be used when writing code:
+
+  \begin{itemize}
+  \item
+    \texttt{\$1} = field 1 (\$2 = field 2, \$3 = field 3, \ldots)
+  \item
+    \texttt{\$0} = entire record
+  \item
+    \texttt{NF} = number of fields
+  \item
+    \texttt{NR} = number of records
+  \item
+    \texttt{FS} = input field separator; default is white space
+    (i.e.~space and tab)
+  \item
+    \texttt{OFS} = output field separator; default is single space
+  \item
+    \texttt{RS} = input record separator; default is new line
+  \item
+    \texttt{ORS} = output record separator; default is new line
+  \item
+    \texttt{{[}0-9{]}} = any number
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Below are examples of how the awk command can be used to achieve lots of
+desired outcomes when processing data files.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data.txt }\CommentTok{\# View data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Printing all of the fields (synonymous with
+\texttt{awk\ \textquotesingle{}\{print\ \$0\}\textquotesingle{}\ data.txt})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print a particular field (e.g.~field 1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{print $1\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes
+GeneX
+GeneY
+GeneZ
+\end{verbatim}
+
+If input file uses a comma (\texttt{,}) as a field separator instead of
+space or tab, set input field separator as (\texttt{,}) (synonymous with
+\texttt{awk\ \textquotesingle{}\{\ FS\ =\ ","\ \}\ ;\ \{print\ \$1\}\textquotesingle{}\ data.csv}).
+
+\begin{quote}
+Try leaving out the \texttt{-F,} and see what happens.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data.csv }\CommentTok{\# View comma separated file (.csv)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes,Sample1,Sample2,Sample3
+GeneX,3210,5678,689
+GeneY,2354,6700,987
+GeneZ,2315,7890,123
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \AttributeTok{{-}F,} \StringTok{\textquotesingle{}\{print $1\}\textquotesingle{}}\NormalTok{ data.csv}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes
+GeneX
+GeneY
+GeneZ
+\end{verbatim}
+
+Print multiple fields (e.g.~field 1 and 3)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{print $1,$3\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes Sample2
+GeneX 5678
+GeneY 6700
+GeneZ 7890
+\end{verbatim}
+
+Print the last field
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{print $NF\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Sample3
+689
+987
+123
+\end{verbatim}
+
+Print all records after the first record (synonymous with
+\texttt{awk\ \textquotesingle{}NR!=1\ \{print\}\textquotesingle{}\ /path/to/file})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NR\textgreater{}1 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print a particular record (e.g.~record 3)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NR==3 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneY   2354    6700    987
+\end{verbatim}
+
+Print all records except for a particular record (e.g.~not record 3)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NR!=3 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print a range of records (e.g.~records 2 to 3)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NR==2, NR==3 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+\end{verbatim}
+
+Print records with fewer than a certain number of fields (e.g.~fewer
+than 4 fields)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data2.txt }\CommentTok{\# View data2.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    
+GeneZ   2315    7890    123
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NF\textless{}4 \{print\}\textquotesingle{}}\NormalTok{ data2.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneY   2354    6700    
+\end{verbatim}
+
+Print records containing a certain string anywhere in record
+(e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}/abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+bcde    dabc    cbad    abdc
+\end{verbatim}
+
+Print records starting with a certain string (e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}/\^{}abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+\end{verbatim}
+
+Print records ending with a certain string (e.g.~\texttt{abc})
+\textgreater One caveat between macOS and Windows (even when using wsl)
+is that the line ending character in macOS (i.e.~unix) is
+\texttt{\textbackslash{}n} while the line ending character in Windows is
+\texttt{\textbackslash{}r\textbackslash{}n}. This means that a text file
+made on a Mac may have a different line ending character than Windows
+recognizes (and vice versa). To avoid this problem\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}/abc$/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+\end{verbatim}
+
+Print records that don't contain a certain string anywhere in record
+(e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}!/abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+cdef    defg    efgh    fghi
+\end{verbatim}
+
+Print records that don't start with a certain string (e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}!/\^{}abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi
+\end{verbatim}
+
+Print records that don't end with a certain string (e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}!/abc$/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+bcde    dabc    cbad    abdc
+cdef    defg    efgh    fghi
+\end{verbatim}
+
+Print records where a particular field contains a string
+(e.g.~\texttt{abc} in field 1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$1 \textasciitilde{} /abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+\end{verbatim}
+
+Print records where a particular field starts with a string
+(e.g.~\texttt{abc} in field 1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$1 \textasciitilde{} /\^{}abc/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+\end{verbatim}
+
+Print records where a particular field ends with a string
+(e.g.~\texttt{abc} in field 4)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$4 \textasciitilde{} /abc$/ \{print\}\textquotesingle{}}\NormalTok{ data3.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+abcd    dcba    efgh    aabc
+\end{verbatim}
+
+Print records where a particular field starts with any number
+(e.g.~field 1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data4.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1ABC    D1CB    EF1G    AAB1
+b2cd    da2b    cba2    2abc
+CD3E    DEF3    3EFG    F2GH
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$1 \textasciitilde{} /\^{}[0{-}9]/ \{print\}\textquotesingle{}}\NormalTok{ data4.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1ABC    D1CB    EF1G    AAB1
+\end{verbatim}
+
+Print records where a particular field ends with any number (e.g.~field
+1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$1 \textasciitilde{} /[0{-}9]$/ \{print\}\textquotesingle{}}\NormalTok{ data4.txt}
+\end{Highlighting}
+\end{Shaded}
+
+Ignore case when looking for records containing a string
+(e.g.~\texttt{abc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}tolower($0) \textasciitilde{} /abc/ \{print\}\textquotesingle{}}\NormalTok{ data4.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1ABC    D1CB    EF1G    AAB1
+b2cd    da2b    cba2    2abc
+\end{verbatim}
+
+Print records that contain a certain value in a particular field
+(e.g.~the number 3210 in field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$2==3210 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneX   3210    5678    689
+\end{verbatim}
+
+Print records that do not contain a certain value in a particular field
+(e.g.~not the number 10 in field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$2!=3210 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print records that contain a value greater than a certain value in a
+particular field (e.g.~\textgreater2354 in field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$2\textgreater{}2354 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+\end{verbatim}
+
+Print records that contain a value less than a certain value in a
+particular field (e.g.~\textless2354 in field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$2\textless{}2354 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print records that contain a value less than or equal to a certain value
+in a particular field (e.g.~\textless2354 in field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}$2\textless{}=2354 \{print\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Sum values in a field (e.g.~field 2)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{sum+=$2;\} END\{print sum;\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+7879
+\end{verbatim}
+
+Remember to add \texttt{NR\textgreater{}1} if your file has a header in
+case the headers are numeric
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NR\textgreater{}1 \{sum+=$2;\} END\{print sum;\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+7879
+\end{verbatim}
+
+Remove blank lines
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ data5.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+
+GeneZ   2315    7890    123
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}NF\textquotesingle{}}\NormalTok{ data5.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Genes   Sample1 Sample2 Sample3
+GeneX   3210    5678    689
+GeneY   2354    6700    987
+GeneZ   2315    7890    123
+\end{verbatim}
+
+Print the record number at beginning of record
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{awk} \StringTok{\textquotesingle{}\{print NR,$0\}\textquotesingle{}}\NormalTok{ data.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1 Genes Sample1 Sample2 Sample3
+2 GeneX 3210    5678    689
+3 GeneY 2354    6700    987
+4 GeneZ 2315    7890    123
+\end{verbatim}
+
+\chapter{Python Example}\label{python-example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for x in range(6):}
+\NormalTok{  print(x ** 2)}
+\end{Highlighting}
+\end{Shaded}
+
+\part{R}
+
+\chapter*{Installing R and RStudio}\label{installing-r-and-rstudio}
+\addcontentsline{toc}{chapter}{Installing R and RStudio}
+
+\markboth{Installing R and RStudio}{Installing R and RStudio}
+
+R is a free software environment for statistical computing and graphics
+that is very popular for processing and visualizing biological data.
+RStudio integrated development environment (IDE) is a set of tools built
+to help you be more productive with R (and Python).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Downloaded R: \url{https://cran.rstudio.com/}
+\item
+  Download RStudio Desktop:
+  \url{https://posit.co/download/rstudio-desktop/}
+\end{enumerate}
+
+Alternatively, RStudio can be used \href{https://posit.cloud/}{online},
+however this version may have difficulty with more computationally-heavy
+processes.
+
+\chapter*{Data Types}\label{data-types}
+\addcontentsline{toc}{chapter}{Data Types}
+
+\markboth{Data Types}{Data Types}
+
+R stores the data you give it in the most optimal way that it can for it
+to do the manipulations and graphing that you desire. Here are the terms
+we use to describe these classifications:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Definition \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Type & Classification for how an object is stored internally in R
+(a.k.a. storage mode) \\
+Class & Broader classification of how an object is stored in R (the more
+common language you would use in conversation and writing) \\
+\end{longtable}
+
+\begin{quote}
+The term ``object'' describes any ``thing'' in R such as numbers,
+characters, etc. (described below).
+\end{quote}
+
+You can figure out the type or class of any object by using the
+\texttt{typeof()} or \texttt{class()} functions, respectively. Here is
+how we determine the type and class of the object \texttt{3}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "numeric"
+\end{verbatim}
+
+\begin{quote}
+These operations are called functions. A function is some task you want
+R to perform and what you put inside the parentheses is the object you
+want R to perform that function on. In these examples, the ``task'' you
+want R to perform is to tell you what the type or class of of an object
+is and the object in these examples is \texttt{3}.
+\end{quote}
+
+\begin{quote}
+Every function in R has specific requirements for how it is used. To
+learn about the requirements for any particular function you can use the
+\texttt{help()} function. For example, to learn how to use the
+\texttt{typeof()} function, you can run \texttt{help(typeof)}.
+\end{quote}
+
+In the examples above you'll notice that \texttt{typeof()} and
+\texttt{class()} use different terms to describe the same object (in
+this case, \texttt{3}). Below is a table that helps visualize these
+distinctions (there are many other types and classes but these are the
+ones you will see most often).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Object
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Class
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Notes
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+``a'' & Character & Character & Letters must be in quotes or they will
+be interpreted as an object (discussed below) \\
+3 & Double & Numeric & Double = double precision floating point numbers
+(significand and exponent) \\
+3L & Integer & Integer & Can only be whole numbers (i.e.~no decimals) \\
+TRUE or FALSE & Logical & Logical & \\
+\end{longtable}
+
+In addition to determining the type or class of an object (using
+\texttt{typeof()} or \texttt{class()}), you can also determine if an
+object is a particular type or class (using \texttt{is.double()},
+\texttt{is.numeric()}, \texttt{is.integer()}, \texttt{is.character()},
+\texttt{is.logical()}). For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.double}\NormalTok{(}\DecValTok{3}\NormalTok{) }\CommentTok{\# TRUE}
+\FunctionTok{is.numeric}\NormalTok{(}\DecValTok{3}\NormalTok{) }\CommentTok{\# TRUE}
+\FunctionTok{is.integer}\NormalTok{(}\DecValTok{3}\NormalTok{) }\CommentTok{\# FALSE}
+\FunctionTok{is.character}\NormalTok{(}\DecValTok{3}\NormalTok{) }\CommentTok{\# FALSE}
+
+\FunctionTok{is.double}\NormalTok{(}\DecValTok{3}\NormalTok{L) }\CommentTok{\# FALSE}
+\FunctionTok{is.numeric}\NormalTok{(}\DecValTok{3}\NormalTok{L) }\CommentTok{\# TRUE}
+\FunctionTok{is.integer}\NormalTok{(}\DecValTok{3}\NormalTok{L) }\CommentTok{\# TRUE}
+\FunctionTok{is.character}\NormalTok{(}\DecValTok{3}\NormalTok{L) }\CommentTok{\# FALSE}
+
+\FunctionTok{is.logical}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# TRUE}
+\FunctionTok{is.numeric}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# FALSE}
+\FunctionTok{is.character}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# FALSE}
+\FunctionTok{is.character}\NormalTok{(}\StringTok{"TRUE"}\NormalTok{) }\CommentTok{\# TRUE}
+
+\FunctionTok{is.logical}\NormalTok{(}\StringTok{"abc"}\NormalTok{) }\CommentTok{\# FALSE}
+\FunctionTok{is.numeric}\NormalTok{(}\StringTok{"abc"}\NormalTok{) }\CommentTok{\# FALSE}
+\FunctionTok{is.character}\NormalTok{(}\StringTok{"abc"}\NormalTok{) }\CommentTok{\# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Notice that the ``answer'' to these functions is logical (\texttt{TRUE}
+or \texttt{FALSE}); this is a very useful feature of R that you will see
+later.
+
+\begin{quote}
+Imagine having a data set with a list of cities and their average yearly
+rainfall totals. With a simple line of code, R can quickly tell you
+whether each city's average yearly rainfall is above or below a certain
+number (outputing \texttt{TRUE} or \texttt{FALSE} for each city).
+\end{quote}
+
+It is often useful to store some information (numbers, text, etc.) as a
+variable that can be easily referenced later. For example, rather than
+having to type out the number 10481034582 every time you need to use it,
+you can simply save it as a variable (R calls these variables
+``objects''). Let's use the letter \texttt{x} as our new object. After
+executing this function you should see it appear in your R environment
+under ``Values'' in the Environment panel in the top-right corner of
+RStudio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{10481034582}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10481034582
+\end{verbatim}
+
+You can change the value of your object by running the same code with a
+different value:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{54321}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 54321
+\end{verbatim}
+
+\begin{quote}
+CAUTION: this overwriting of an object can't be undone except by
+starting over and regenerating it the way you did originally. To see if
+you have used an object name already, check under ``Values'' in the
+Environment panel in the top-right of RStudio.
+\end{quote}
+
+Now, anytime you need to use that value you can simply use the object
+instead:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{12345}
+\FunctionTok{typeof}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Let\textquotesingle{}s overwrite the object x to prove that it is holding the correct value}
+
+\FunctionTok{typeof}\NormalTok{(}\StringTok{"abcd"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \StringTok{"abcd"}
+\FunctionTok{typeof}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+These new objects don't have to be single letters, they can also be
+multiple letters or words; they just can't start with a number or
+contain any special characters other than an underscore \texttt{\_}.
+This can help you remember which objects are which:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{big\_number }\OtherTok{\textless{}{-}} \DecValTok{10481034582}
+\NormalTok{big\_number}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10481034582
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{small\_number }\OtherTok{\textless{}{-}} \DecValTok{54321}
+\NormalTok{small\_number}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 54321
+\end{verbatim}
+
+As you start generating your own code and pipelines for analyzing data,
+you will find this feature particularly useful as you can avoid having
+to change every occurrence of an object and instead just change it a
+single time when you originally create the object.
+
+\chapter*{Data Structures}\label{data-structures}
+\addcontentsline{toc}{chapter}{Data Structures}
+
+\markboth{Data Structures}{Data Structures}
+
+In the previous section we discussed storing objects as variables so
+that they can be easily referenced later:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{54321} \CommentTok{\# Store the number 54321 as a object called \textquotesingle{}x\textquotesingle{}}
+\NormalTok{x }\CommentTok{\# View the contents of x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 54321
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(x) }\CommentTok{\# Check the data type of x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \StringTok{"science"} \CommentTok{\# Store the word "science" as a object called \textquotesingle{}y\textquotesingle{}}
+\NormalTok{y }\CommentTok{\# View the contents of y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "science"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(y) }\CommentTok{\# Check the data type of y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+R can handle much more than a single object in a variable. You can add
+thousands of objects to a single variable and they can be of the same or
+different types and even have multiple rows or columns. The terms used
+to describe how multiple objects are stored depends on whether the
+objects are of the same (homogeneous) or different (heterogeneous) types
+and their dimensions:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Rows & Homogeneous & Heterogeneous \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1d & Atomic vector & List \\
+2d & Matrix & Data frame \\
+nd & Array & \\
+\end{longtable}
+
+In the simplest case, a group of objects of the same type can be
+combined (using combine, \texttt{c()}) to form an atomic vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{) }\CommentTok{\# Create an object called \textquotesingle{}string\textquotesingle{} containing the numbers 1{-}5}
+\NormalTok{string }\CommentTok{\# View the contents of string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(string) }\CommentTok{\# Check the data type of string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.atomic}\NormalTok{(string) }\CommentTok{\# Check if string is an atomic vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+However, if you try to combine objects of different types using
+\texttt{c()}, R will force (i.e.~coerce) them all to the same data type
+(in this case, characters):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\StringTok{"six"}\NormalTok{) }\CommentTok{\# Create an object called \textquotesingle{}string\textquotesingle{} containing the numbers 1{-}5 and the word "six"}
+\NormalTok{string }\CommentTok{\# View the contents of string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "1"   "2"   "3"   "4"   "5"   "six"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(string) }\CommentTok{\# Check the data type of string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.atomic}\NormalTok{(string) }\CommentTok{\# Check if string is an atomic vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+To ensure that the original data type is preserved, you can instead use
+a list:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\StringTok{"six"}\NormalTok{) }\CommentTok{\# Create an object called \textquotesingle{}string\textquotesingle{} containing the numbers 1{-}5 and the word "six". stored as a list}
+\FunctionTok{typeof}\NormalTok{(string) }\CommentTok{\# Check the data type of string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "list"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.atomic}\NormalTok{(string) }\CommentTok{\# Check if string is an atomic vector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+You can even confirm that the data type of each element in the list has
+been preserved (this code uses a process called subsetting, a topic that
+will be discussed later):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Determine the data type of the 2nd element in the list}
+\FunctionTok{typeof}\NormalTok{(string[[}\DecValTok{2}\NormalTok{]]) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Determine the data type of the 6th element in the list}
+\FunctionTok{typeof}\NormalTok{(string[[}\DecValTok{6}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+While atomic vectors and lists are one-dimensional data structures, data
+can also be stored in multiple dimensions. A two-dimensional structure
+that contains data of the same type is called a matrix. There are
+multiple ways to create a matrix. One of them is by using a column bind
+(\texttt{cbind()}) or row bind (\texttt{rbind()}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matrix\_A }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)) }\CommentTok{\# Create a matrix using cbind and store it as an object called \textquotesingle{}matrix\_A\textquotesingle{}}
+\NormalTok{matrix\_A }\CommentTok{\# View the contents of matrix\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(matrix\_A) }\CommentTok{\# Check the data type of matrix\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.matrix}\NormalTok{(matrix\_A) }\CommentTok{\# Check if matrix\_A is a matrix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matrix\_B }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)) }\CommentTok{\# Create a matrix using rbind and store it as an object called \textquotesingle{}matrix\_B\textquotesingle{}}
+\NormalTok{matrix\_B }\CommentTok{\# View the contents of matrix\_B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(matrix\_B) }\CommentTok{\# Check the data type of matrix\_B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.matrix}\NormalTok{(matrix\_B) }\CommentTok{\# Check if matrix\_B is a matrix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+As with using c() above to create a vector, R will coerce everything to
+the same data type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matrix\_C }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"three"}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)) }\CommentTok{\# Create a matrix using rbind and store it as an object called \textquotesingle{}matrix\_C\textquotesingle{}}
+\NormalTok{matrix\_C }\CommentTok{\# View the contents of matrix\_C}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]   
+[1,] "1"  "2"  "three"
+[2,] "4"  "5"  "6"    
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(matrix\_C) }\CommentTok{\# Check the data type of matrix\_C}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+Even if you try to make one row of the matrix a list to preserve the
+different data types, R will coerce every row of the matrix to a list so
+that it is technically still the same data type throughout:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{matrix\_C }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"three"}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)) }\CommentTok{\# Create a matrix using rbind and store it as an object called \textquotesingle{}matrix\_C\textquotesingle{}}
+\NormalTok{matrix\_C }\CommentTok{\# View the contents of matrix\_C}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]   
+[1,] 1    2    "three"
+[2,] 4    5    6      
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(matrix\_C) }\CommentTok{\# Check the data type of matrix\_C}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "list"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.matrix}\NormalTok{(matrix\_C) }\CommentTok{\# Check if matrix\_C is a matrix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(matrix\_C[}\DecValTok{2}\NormalTok{,]) }\CommentTok{\# Check the type of data stored in row 2 of matrix\_C}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "list"
+\end{verbatim}
+
+So while this technically does allow the matrix to hold different data
+types, storing them within lists prevents certain matrix operations from
+being able to be used on the matrix.
+
+To preserve different data types in a two-dimensional structure without
+needing to store them as lists, you can instead use a data frame. This
+will allow atomic vectors of different types to be combined as columns
+within a single structure:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dataframe\_A }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\StringTok{"four"}\NormalTok{, }\StringTok{"five"}\NormalTok{, }\StringTok{"six"}\NormalTok{)) }\CommentTok{\# Create a data frame and store it as an object called dataframe\_A}
+\NormalTok{dataframe\_A }\CommentTok{\# View dataframe\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  c.1..2..3. c..four....five....six..
+1          1                     four
+2          2                     five
+3          3                      six
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(dataframe\_A[,}\DecValTok{1}\NormalTok{]) }\CommentTok{\# Check type of data in column 1 of dataframe\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(dataframe\_A[,}\DecValTok{2}\NormalTok{]) }\CommentTok{\# Check type of data in column 2 of dataframe\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.data.frame}\NormalTok{(dataframe\_A) }\CommentTok{\# Check if dataframe\_A is a data frame?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+Finally, a data structure with two or more dimensions is called an
+array. Arrays are similar to matrices in that they can only store one
+data type (unless you store the data as lists as described above for
+matrices, which limits which array functions can be used):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{array\_A }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)) }\CommentTok{\# Create an array using the numbers 1{-}12 stored in 2 rows, 3 columns, and 2 "layers" (i.e. the third dimension) and store it as an object called array\_A}
+\NormalTok{array\_A }\CommentTok{\# View the contents of array\_A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+, , 1
+
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+, , 2
+
+     [,1] [,2] [,3]
+[1,]    7    9   11
+[2,]    8   10   12
+\end{verbatim}
+
+The most common data structure used in bioinformatics is a data frame,
+though you may also use matrices for simpler datasets. Knowing how each
+data structure is composed and what data type(s) can be stored within
+them will be very useful when trying to perform operations on these
+structures (as will be discussed later).
+
+
+
+
+\end{document}

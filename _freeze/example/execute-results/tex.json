@@ -1,0 +1,21 @@
+{
+  "hash": "2553693981f80b65421fe28bab0dea05",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Python Example\nnumber: false\nengine: knitr\nformat: \n    live-html:\n        number-sections: false\n---\n\n\n::: {.cell}\n\n```{.pyodide .cell-code}\nfor x in range(6):\n  print(x ** 2)\n```\n:::\n",
+    "supporting": [
+      "example_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}
