@@ -1,9 +1,11 @@
 {
-  "hash": "9b4eaa91f49bb16c79484f721fbb1bf0",
+  "hash": "b9fcbc95ad6ae72900a632ac07b7b1e5",
   "result": {
     "engine": "knitr",
-    "markdown": "---\nformat: live-html\n---\n\n# Python Example 2 {.unnumbered}\n\n\n::: {.cell}\n\n:::\n\n\n\n## Try This Interactive Python Code\n\nClick \"Run Code\" to execute:\n\n::: {.cell}\n```{pyodide}\nfor x in range(11):\n  print(x ** 2)\n```\n:::\n",
-    "supporting": [],
+    "markdown": "---\nformat: live-html\n---\n\n# Python Example 2 {.unnumbered}\n\n\n::: {.cell}\n\n:::\n\n\n\n## Try This Interactive Python Code\n\nClick \"Run Code\" to execute:\n\n\n::: {.cell}\n```{pyodide}\nfor x in range(12):\n  print(x ** 2)\n```\n:::\n",
+    "supporting": [
+      "example2_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

@@ -9,7 +9,8 @@ format: live-html
 ## Try This Interactive Python Code
 
 Click "Run Code" to execute:
+
 ```{pyodide}
-for x in range(11):
+for x in range(12):
   print(x ** 2)
 ```
