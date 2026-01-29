@@ -1,4 +1,4 @@
-# awk {.unnumbered}
+# awk2 {.unnumbered}
 
 awk is scripting language named after its developers (Aho, Weinberger, and Kernighan) ([usage](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/))
 
@@ -40,7 +40,6 @@ Below are examples of how the awk command can be used to achieve lots of desired
 
 ```
 
-
 ```{bash}
 cat data.txt # View data.txt
 ```
@@ -59,11 +58,12 @@ awk '{print $1}' data.txt
 
 If input file uses a comma (`,`) as a field separator instead of space or tab, set input field separator as (`,`) (synonymous with `awk '{ FS = "," } ; {print $1}' data.csv`).
 
->Try leaving out the `-F,` and see what happens.
+> Try leaving out the `-F,` and see what happens.
 
 ```{bash}
 cat data.csv # View comma separated file (.csv)
 ```
+
 ```{bash}
 awk -F, '{print $1}' data.csv
 ```
@@ -109,6 +109,7 @@ Print records with fewer than a certain number of fields (e.g. fewer than 4 fiel
 ```{bash}
 cat data2.txt # View data2.txt
 ```
+
 ```{bash}
 awk 'NF<4 {print}' data2.txt
 ```
@@ -118,6 +119,7 @@ Print records containing a certain string anywhere in record (e.g. `abc`)
 ```{bash}
 cat data3.txt
 ```
+
 ```{bash}
 awk '/abc/ {print}' data3.txt
 ```
@@ -128,8 +130,7 @@ Print records starting with a certain string (e.g. `abc`)
 awk '/^abc/ {print}' data3.txt
 ```
 
-Print records ending with a certain string (e.g. `abc`)
->One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e. unix) is `\n` while the line ending character in Windows is `\r\n`. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem...
+Print records ending with a certain string (e.g. `abc`) \>One caveat between macOS and Windows (even when using wsl) is that the line ending character in macOS (i.e. unix) is `\n` while the line ending character in Windows is `\r\n`. This means that a text file made on a Mac may have a different line ending character than Windows recognizes (and vice versa). To avoid this problem...
 
 ```{bash}
 awk '/abc$/ {print}' data3.txt
@@ -172,9 +173,11 @@ awk '$4 ~ /abc$/ {print}' data3.txt
 ```
 
 Print records where a particular field starts with any number (e.g. field 1)
+
 ```{bash}
 cat data4.txt
 ```
+
 ```{bash}
 awk '$1 ~ /^[0-9]/ {print}' data4.txt
 ```
@@ -192,9 +195,11 @@ awk 'tolower($0) ~ /abc/ {print}' data4.txt
 ```
 
 Print records that contain a certain value in a particular field (e.g. the number 3210 in field 2)
+
 ```{bash}
 cat data.txt
 ```
+
 ```{bash}
 awk '$2==3210 {print}' data.txt
 ```
@@ -240,6 +245,7 @@ Remove blank lines
 ```{bash}
 cat data5.txt
 ```
+
 ```{bash}
 awk 'NF' data5.txt
 ```
@@ -249,4 +255,3 @@ Print the record number at beginning of record
 ```{bash}
 awk '{print NR,$0}' data.txt
 ```
-
