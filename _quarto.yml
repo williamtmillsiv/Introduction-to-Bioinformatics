@@ -42,6 +42,7 @@ bibliography: references.bib
 format:
   live-html:
     theme: cosmo
+    number-sections: false
   pdf:
     documentclass: scrreprt
 

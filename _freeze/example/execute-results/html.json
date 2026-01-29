@@ -1,8 +1,8 @@
 {
-  "hash": "25aa7a6c332cbf68ee84109049a83b57",
+  "hash": "ae7f8a18026f8a252cc103596863ff8a",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: Python Example\nengine: knitr\nformat: \n    live-html:\n        number-sections: false\n---\n\n\n::: {.cell}\n\n```{.pyodide .cell-code}\nfor x in range(8):\n  print(x ** 2)\n```\n:::\n",
+    "markdown": "---\ntitle: Python Example\nengine: knitr\nformat: \n    live-html:\n        number-sections: false\n---\n\n\n::: {.cell}\n\n```{.pyodide .cell-code}\nfor x in range(9):\n  print(x ** 2)\n```\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
