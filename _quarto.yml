@@ -27,6 +27,7 @@ book:
         - awk.qmd
         - text: "Python Example"
           href: example.qmd
+        - example2.qmd
     - part: Visualization.qmd
       chapters:
         - R_Install.qmd

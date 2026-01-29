@@ -311,5 +311,16 @@
       "Command Line",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python Example</span>"
     ]
+  },
+  {
+    "objectID": "example2.html",
+    "href": "example2.html",
+    "title": "Python Example 2",
+    "section": "",
+    "text": "Try This Interactive Python Code\nClick “Run Code” to execute:",
+    "crumbs": [
+      "Command Line",
+      "Python Example 2"
+    ]
   }
 ]

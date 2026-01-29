@@ -1,0 +1,15 @@
+---
+format: live-html
+---
+
+# Python Example 2 {.unnumbered}
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Try This Interactive Python Code
+
+Click "Run Code" to execute:
+```{pyodide}
+for x in range(11):
+  print(x ** 2)
+```
