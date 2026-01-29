@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Introduction to Bioinformatics",
     "section": "",
-    "text": "Introduction\nThis book will explore what types of biological data are out there, what tools are available to process them, and how you can begin processing data on your own computer. Even though the main emphasis of this book will be helping readers understand how to process sequencing data, many of the ideas and skills learned will be useful for dealing with other forms of biological data.",
+    "text": "Introduction\nThis book is a work in progress. Please excuse any disorganization or incomplete pages.\nThis book will explore what types of biological data are out there, what tools are available to process them, and how you can begin processing data on your own computer. Even though the main emphasis of this book will be helping readers understand how to process sequencing data, many of the ideas and skills learned will be useful for dealing with other forms of biological data.",
     "crumbs": [
       "Introduction"
     ]
@@ -120,7 +120,7 @@
     "href": "getting_started.html",
     "title": "Getting Started",
     "section": "",
-    "text": "Windows (using Windows Subsystem for Linux (WSL))",
+    "text": "Windows (using Windows Subsystem for Linux (WSL))\nIn order to perform most bioinformatic analyses, users will need access to a Unix or Unix-like operating system. Windows users will need to install Windows Subsystem for Linux (WSL) while Mac users just need access to the Terminal application. Below are instructions for accessing a Unix or Unix-like command line for Windows and Mac users.",
     "crumbs": [
       "Command Line",
       "Getting Started"
