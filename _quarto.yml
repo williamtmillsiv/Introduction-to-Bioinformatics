@@ -8,8 +8,6 @@ book:
   title: "Introduction to Bioinformatics"
   author: "William T. Mills IV"
   date: "Last updated: 4/3/2025"
-  sidebar:
-    collapse-level: 1
   chapters:
     - part: index.qmd
 #      chapters: 
