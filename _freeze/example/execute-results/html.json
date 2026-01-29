@@ -1,0 +1,17 @@
+{
+  "hash": "933705e3d5e2a06400d55f4cb056eff8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Python Example2\nengine: knitr\nformat: live-html\n---\n\n## {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}\n\n\n::: {.cell}\n\n```{.pyodide .cell-code}\nfor x in range(5):\n  print(x ** 2)\n```\n:::\n",
+    "supporting": [
+      "example_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
