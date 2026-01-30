@@ -70,5 +70,16 @@
     "crumbs": [
       "Introduction"
     ]
+  },
+  {
+    "objectID": "CentralDogma.html#section",
+    "href": "CentralDogma.html#section",
+    "title": "The Central Dogma of Molecular Biology",
+    "section": "",
+    "text": "The Central Dogma: “Once information has got into a protein it can’t get out again”. Information here means the sequence of the amino acid residues, or other sequences related to it. That is, we may be able to have\n\nbut never\n\nwhere the arrows show the transfer of information.\n-Francis Crick, 1956 (https://wellcomecollection.org/works/xmscu3g4/items)",
+    "crumbs": [
+      "Central Dogma",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Central Dogma of Molecular Biology</span>"
+    ]
   }
 ]
