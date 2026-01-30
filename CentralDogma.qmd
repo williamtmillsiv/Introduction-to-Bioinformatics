@@ -1,16 +1,16 @@
 # The Central Dogma of Molecular Biology
 
-The Central Dogma: "Once information has got into a protein it can't get out again". Information here means the sequence of the amino acid residues, or other sequences related to it. That is, we [may]{.underline} be able to have
-
-![](images/paste-1.png)
-
-but [never]{.underline}
-
-![](images/paste-2.png)
-
-where the arrows show [the transfer of information]{.underline}.
-
--Francis Crick, 1956 (<https://wellcomecollection.org/works/xmscu3g4/items>)
+> The Central Dogma: "Once information has got into a protein it can't get out again". Information here means the sequence of the amino acid residues, or other sequences related to it. That is, we [may]{.underline} be able to have
+>
+> ![](images/paste-1.png)
+>
+> but [never]{.underline}
+>
+> ![](images/paste-2.png)
+>
+> where the arrows show [the transfer of information]{.underline}.
+>
+> -Francis Crick, 1956 (<https://wellcomecollection.org/works/xmscu3g4/items>)
 
 These are perhaps the most famous unpublished ideas in the history of biology. In these notes, Nobel Prize winner Francis Crick lays out his ideas for how "information" flows through the cell. Remarkably, these hand-drawn figures are almost entirely accurate.
 
