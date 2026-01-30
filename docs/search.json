@@ -1,0 +1,73 @@
+[
+  {
+    "objectID": "example2.html",
+    "href": "example2.html",
+    "title": "Python Example 2",
+    "section": "",
+    "text": "Try This Interactive Python Code\nClick “Run Code” to execute:",
+    "crumbs": [
+      "Command Line",
+      "Python Example 2"
+    ]
+  },
+  {
+    "objectID": "CentralDogma.html",
+    "href": "CentralDogma.html",
+    "title": "The Central Dogma of Molecular Biology",
+    "section": "",
+    "text": "The Central Dogma: “Once information has got into a protein it can’t get out again”. Information here means the sequence of the amino acid residues, or other sequences related to it. That is, we may be able to have\n\nbut never\n\nwhere the arrows show the transfer of information.\n-Francis Crick, 1956 (https://wellcomecollection.org/works/xmscu3g4/items)",
+    "crumbs": [
+      "The Central Dogma of Molecular Biology"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Bioinformatics",
+    "section": "",
+    "text": "Introduction\nThis book is a work in progress. Please excuse any disorganization or incomplete pages.\nThis book will explore what types of biological data are out there, what tools are available to process them, and how you can begin processing data on your own computer. Even though the main emphasis of this book will be helping readers understand how to process sequencing data, many of the ideas and skills learned will be useful for dealing with other forms of biological data.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Introduction to Bioinformatics",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nWhile this book is intended for readers with no computational experience, a general understanding of molecular biology (such as would be learned in an introductory biology course) would be useful for understanding the types of data being processed and the analyses being performed. When possible, references will be included to direct readers to additional resources for understanding biological concepts.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#structure-of-the-book",
+    "href": "index.html#structure-of-the-book",
+    "title": "Introduction to Bioinformatics",
+    "section": "Structure of the Book",
+    "text": "Structure of the Book\nThis book is broken up into ___ main sections:\n\nSection 1\nSection 2\nSection 3\nSection 4\nSection 5\n\nEach section contains several chapters that dive into the concepts that comprise that section. Each chapter will include references to additional resources that readers may pursue for more advanced information about the topic being discussed. Additionally, exercises will be included in each chapter to help readers put newly learned skills to the test and see real-world applications for the topics being learned.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Introduction to Bioinformatics",
+    "section": "License",
+    "text": "License\n\n\n\n\n\nThis work is free to use, and is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Introduction to Bioinformatics",
+    "section": "About Me",
+    "text": "About Me\n\n\nI earned my B.S. in Biochemistry from the University of Virginia (Charlottesville, VA) in 2017 and my Ph.D. in Biological Chemistry from the Johns Hopkins University School of Medicine (Baltimore, MD) in 2023. I am now an Assistant Professor of Biology at Mount St. Mary’s University (Emmitsburg, MD). I began working in bioinformatics during graduate school where I developed pipelines for processing novel types of sequencing data. While my formal training was in chemistry and biology, my experience in bioinformatics was largely self taught. I now strive to share what I’ve learned with scientists looking to step into bioinformatics for the first time.\n\n\n \n\n\nPlease contribute to this book by submitting your feedback: https://github.com/williamtmills/Introduction-to-Bioinformatics\nThis is a Quarto book. To learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "Introduction"
+    ]
+  }
+]
