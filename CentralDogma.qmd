@@ -11,3 +11,9 @@ but [never]{.underline}
 where the arrows show [the transfer of information]{.underline}.
 
 -Francis Crick, 1956 (<https://wellcomecollection.org/works/xmscu3g4/items>)
+
+These are perhaps the most famous unpublished ideas in the history of biology. In these notes, Nobel Prize winner Francis Crick lays out his ideas for how "information" flows through the cell. Remarkably, these hand-drawn figures are almost entirely accurate.
+
+While Crick used the term "Central Dogma" to describe all the possible ways that information could move through a cell, the term—or its more expanded version, "The Central Dogma of Molecular Biology"—is more simply used to describe the flow of information from the genetic material stored in the nucleus to the final functional actors in the cell:
+
+(insert image, DNA--\>RNA--\>Protein)

@@ -15,7 +15,9 @@ book:
 #       - p0c2-ethical-considerations.qmd
 #       - p0c3-historical-perspective.qmd
 #       - p0c4-biological-databases.qmd
-    - part: CentralDogma.qmd
+    - part: Central Dogma
+      chapters:
+        - CentralDogma.qmd
     - part: command_line.qmd
       chapters:
         - getting_started.qmd
